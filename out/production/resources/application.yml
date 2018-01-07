@@ -1,0 +1,11 @@
+resources:
+    static-locations: file:C:\Users\rlokesh\Desktop\FaceApp\FaceRecognition\src\main\resources\static\face\build
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5431/todolist
+    driverClassName: org.postgresql.Driver
+    username: todolist
+    password: todolist
+    testWhileIdle: true
+    validationQuery: SELECT 1
