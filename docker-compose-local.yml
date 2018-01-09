@@ -1,0 +1,22 @@
+version: "2.0"
+
+services:
+  faap:
+    build:
+      context: application
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      - FAAP_DB=faap-database
+    depends_on:
+      - faap-database
+
+  faap:
+    image: postgres:9.6.5-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=faap
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_DB=faap

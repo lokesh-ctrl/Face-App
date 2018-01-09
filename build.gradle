@@ -16,7 +16,7 @@ apply plugin: 'org.springframework.boot'
 
 group = 'com.aconex'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 1.7
 
 repositories {
 	mavenCentral()
@@ -28,9 +28,27 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-rest')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	runtime('org.springframework.boot:spring-boot-devtools')
-	//compile 'frankiesardo:icepick:{{latest-version}}'
-	//provided 'frankiesardo:icepick-processor:{{latest-version}}'
 	runtime('org.postgresql:postgresql')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.restdocs:spring-restdocs-mockmvc')
 }
+task startApp(type: Exec, dependsOn: ["bootRepackage"]) {
+	workingDir "."
+	commandLine 'docker-compose', '-f', 'docker-compose-local.yml', 'up', '--force-recreate'
+}
+
+task stopApp(type: Exec) {
+	workingDir "."
+	commandLine 'docker-compose', '-f', 'docker-compose-local.yml', 'down', '--rmi', 'local'
+}
+
+task startIntegrationDatabase(type: Exec) {
+	commandLine "docker", "run", "--rm", "-it", "-p", "5432:5432", "--name", "faap", "-e", "POSTGRES_PASSWORD=mysecretpassword", "-d", "postgres:9.6.5-alpine"
+}
+
+task stopIntegrationDatabase(type: Exec) {
+	commandLine "docker", "rm", "-f", "faap"
+}
+
+
+//apply from: "${rootDir}/build-support/docker_publish.gradle"
