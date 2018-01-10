@@ -34,7 +34,7 @@ dependencies {
 }
 task startApp(type: Exec, dependsOn: ["bootRepackage"]) {
 	workingDir "."
-	commandLine 'docker-compose', '-f', 'docker-compose-local.yml', 'up', '--force-recreate'
+	commandLine 'sudo','docker-compose', '-f', 'docker-compose-local.yml', 'up', '--force-recreate'
 }
 
 task stopApp(type: Exec) {
