@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         navigator.getUserMedia ||
         navigator.webkitGetUserMedia ||
-        navigator.webkitGetUserMedia ||
         navigator.mozGetUserMedia ||
-        navigator.msGetUserMedia
+        navigator.msGetUserMedia ||
+        navigator.mediaDevices.getUserMedia
     );
 
 
@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Request the camera.
         navigator.getMedia(
             {
-                video: true
+                video: true,
+                audio: false
             },
             // Success Callback
             function(stream) {
