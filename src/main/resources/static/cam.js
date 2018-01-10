@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // The getUserMedia interface is used for handling camera input.
     // Some browsers need a prefix so here we're covering all the options
     navigator.getMedia = (
+
         navigator.getUserMedia ||
         navigator.webkitGetUserMedia ||
         navigator.webkitGetUserMedia ||
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             function(stream) {
 
                 // Create an object URL for the video stream and
-                // set it as src of our HTLM video element.
+                // set it as src of our HTML video element.
                 video.src = window.URL.createObjectURL(stream);
 
                 // Play the video element to start the stream.
