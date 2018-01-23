@@ -6,7 +6,7 @@ this.addEventListener('install', function(event) {
 			return cache.addAll([
 				// Path is relative to the origin, not the app directory.
 				'index.html',
-				'index.css',,
+				'index.css',
 				'cam.js',
 			])
 			.then(function() {

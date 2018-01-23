@@ -1,8 +1,15 @@
    class App extends React.Component{
             render(){
-                return(
-                    <h1>Welocome to face app</h1>
+                return(<div>
+                    <h2>Instructions:</h2>
+                    <li>
+                        <ul></ul>
+                        <ul></ul>
+                        <ul></ul>
+                        <ul></ul>
+                    </li>
+
                  )
             }
          }
-   ReactDOM.render(<App />, document.getElementById('container2'));
+   ReactDOM.render(<App />, document.querySelector('#container2'));
