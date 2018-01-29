@@ -1,3 +1,4 @@
+var img=null;
 document.addEventListener('DOMContentLoaded', function () {
 
     // References to all the element we will need from html.
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
 
         var snap = takeSnapshot();
-
+        img=snap;
         // Show image.
         image.setAttribute('src', snap);
         image.classList.add("visible");
@@ -82,34 +83,26 @@ document.addEventListener('DOMContentLoaded', function () {
         // Enable delete and save buttons
         delete_photo_btn.classList.remove("disabled");
         download_photo_btn.classList.remove("disabled");
-
-        // Set the href attribute of the download button to the snap url.
-        download_photo_btn.href = snap;
-        uploadFile();
-        function uploadFile() {
-            var blobFile = $('#download-photo').files[0];
-            var formData = new FormData();
-            formData.append("snap", blobFile);
-
-            $.ajax({
-               url: "",
-               type: "POST",
-               data: formData,
-               processData: false,
-               contentType: false,
-               success: function(response) {
-                   // .. do something
-                   console.log(response);
-               },
-               error: function(jqXHR, textStatus, errorMessage) {
-                   console.log(errorMessage); // Optional
-               }
-            });
-        }
-
         // Pause video playback of stream.
         video.pause();
 
+    });
+
+    download_photo_btn.addEventListener("click", function(e) {
+        var a={image:img};
+        console.log(typeof(a));
+        console.log(JSON.stringify(a));
+        $.ajax({
+            type: "POST",
+            url: "/controlImg",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: JSON.stringify(a),
+            success: function(dataString) {
+                console.log(typeof (dataString));
+                console.log(dataString);
+            }
+        });
     });
 
 

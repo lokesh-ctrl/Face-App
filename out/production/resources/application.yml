@@ -1,11 +1,10 @@
-resources:
-    static-locations: file:C:\Users\rlokesh\Desktop\FaceApp\FaceRecognition\src\main\resources\static\face\build
+
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5431/todolist
+    url: jdbc:postgresql://localhost:5432/faap
     driverClassName: org.postgresql.Driver
-    username: todolist
-    password: todolist
+    username: faap
+    password: mysecretpassword
     testWhileIdle: true
     validationQuery: SELECT 1
