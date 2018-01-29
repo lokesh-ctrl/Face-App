@@ -6,10 +6,9 @@ class App extends React.Component{
         return(<div>
             <h2>Instructions:</h2>
             <li>
-                <ul>put face staright to the camera</ul>
-                <ul></ul>
-                <ul></ul>
-                <ul></ul>
+                <ul>Click on scan button to take the snap</ul>
+                <ul>Take care while capturing, it should be center aligned</ul>
+                <ul>Use retake button, if any problem arises in step 2</ul>
             </li>
             </div>
         )
