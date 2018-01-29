@@ -6,6 +6,11 @@ class App extends React.Component{
     render(){
         return(<div>
                 <div>Details of the person</div>
+        return(<div id="instrctions">
+                <p><b>INSTRUCTIONS:</b></p>
+               <ul>
+                   <li>Put face straight</li>
+               </ul>
             </div>
         )
     }
@@ -13,4 +18,4 @@ class App extends React.Component{
     }
 }
 
-ReactDOM.render(<App />, document.getElementById("container2"));
+ReactDOM.render(<App />, document.getElementById("container1"));
