@@ -3,7 +3,6 @@ buildscript {
 		springBootVersion = '1.5.9.RELEASE'
 		lombokVersion = '1.16.18'
 		apply plugin: 'groovy'
-		useLibrary 'org.apache.http.legacy'
 	}
 	repositories {
 		mavenCentral()
