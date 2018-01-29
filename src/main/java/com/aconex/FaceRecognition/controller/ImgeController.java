@@ -5,6 +5,8 @@ import com.aconex.FaceRecognition.representation.ImageDto;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import sun.misc.BASE64Decoder;
+
+import java.io.ByteArrayOutputStream;
 import java.net.URI;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -20,6 +24,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
@@ -91,6 +96,34 @@ public class ImgeController {
         {
             System.out.println(e.getMessage());
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         return "{\"status\":\"Ok Manoj\"}";
