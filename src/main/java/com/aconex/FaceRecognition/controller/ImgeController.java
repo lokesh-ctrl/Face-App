@@ -5,6 +5,8 @@ import com.aconex.FaceRecognition.representation.ImageDto;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import sun.misc.BASE64Decoder;
+
+import java.io.ByteArrayOutputStream;
 import java.net.URI;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -40,23 +44,15 @@ public class ImgeController {
             bis.close();
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("ms");
         }
+        StringBuilder sb = new StringBuilder();
+        byte[] jpgByteArray=null;
         try {
-            ImageIO.write(image,"png", new File("/home/manoj/output.png"));
-        }catch(Exception e){e.printStackTrace();
-        System.out.println("manoj");}
+            ByteArrayOutputStream b = new ByteArrayOutputStream();
+            ImageIO.write(image, "png", b);
 
-
-
-
-
-
-
-
-
-
-
+            jpgByteArray = b.toByteArray();
+        }catch(Exception e){}
 
 
 
@@ -64,20 +60,19 @@ public class ImgeController {
 
         try
         {
-            URIBuilder builder = new URIBuilder("https://westus.api.cognitive.microsoft.com/face/v1.0/detect");
+            URIBuilder builder = new URIBuilder("https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect");
 
             builder.setParameter("returnFaceId", "true");
             builder.setParameter("returnFaceLandmarks", "false");
-            builder.setParameter("returnFaceAttributes", "{string}");
+            builder.setParameter("returnFaceAttributes", "age,gender");
 
             URI uri = builder.build();
             HttpPost request = new HttpPost(uri);
-            request.setHeader("Content-Type", "application/json");
-            request.setHeader("Ocp-Apim-Subscription-Key", "{subscription key}");
+            request.setHeader("Content-Type", "application/octet-stream");
+            request.setHeader("Ocp-Apim-Subscription-Key", "a57575674bb44929b470d4e60a4994f0");
 
-            String body="{\"status\":\"http://awallpapersimages.com/wp-content/uploads/2016/08/MS-Dhoni-Free-hd-Wallpaper-1024x748.jpg\"}";
             // Request body
-            StringEntity reqEntity = new StringEntity("{body}");
+            ByteArrayEntity reqEntity = new ByteArrayEntity(jpgByteArray,ContentType.APPLICATION_OCTET_STREAM);
             request.setEntity(reqEntity);
 
             HttpResponse response = httpclient.execute(request);
@@ -87,12 +82,13 @@ public class ImgeController {
             {
                 System.out.println(EntityUtils.toString(entity));
             }
+
+            return entity.toString();
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
         }
-
 
 
 
