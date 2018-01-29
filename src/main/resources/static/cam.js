@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         navigator.webkitGetUserMedia ||
         navigator.mozGetUserMedia ||
         navigator.msGetUserMedia ||
+        navigator.mediaDevices.getUserMedia
        navigator.mediaDevices.getUserMedia
     );
 
