@@ -90,8 +90,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     download_photo_btn.addEventListener("click", function(e) {
         var a={image:img};
-        console.log(typeof(a));
-        console.log(JSON.stringify(a));
         $.ajax({
             type: "POST",
             url: "/controlImg",
@@ -99,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function () {
             dataType: 'json',
             data: JSON.stringify(a),
             success: function(dataString) {
-                console.log(typeof (dataString));
                 console.log(dataString);
             }
         });
