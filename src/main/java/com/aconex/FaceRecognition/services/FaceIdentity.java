@@ -36,7 +36,7 @@ public class FaceIdentity{
             request.setHeader("Content-Type", "application/json");
             request.setHeader("Ocp-Apim-Subscription-Key", "a57575674bb44929b470d4e60a4994f0");
 
-            String body = "{\"personGroupId\":\"interns-group-00\",\"faceIds\":[\""+FaceId+"\"],\"maxNumOfCandidatesReturned\":1,\"confidenceThreshold\": \"0.5\"}";
+            String body = "{\"personGroupId\":\"interns-group-00\",\"faceIds\":[\""+FaceId+"\"],\"maxNumOfCandidatesReturned\":1,\"confidenceThreshold\": \"0.2\"}";
 
             StringEntity reqEntity = new StringEntity(body);
             request.setEntity(reqEntity);
