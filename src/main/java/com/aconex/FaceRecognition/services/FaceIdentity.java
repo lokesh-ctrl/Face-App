@@ -46,7 +46,8 @@ public class FaceIdentity{
 
             if (entity != null){
                 String RecognizedPersonID= EntityUtils.toString(entity);
-                return employeeService.getPersonDetails(RecognizedPersonID.substring(77,115));
+                System.out.println("\n\n"+RecognizedPersonID.substring(77,113)+"\n\n");
+                return employeeService.getPersonDetails(RecognizedPersonID.substring(77,113));
             }
 
         }catch (Exception e){

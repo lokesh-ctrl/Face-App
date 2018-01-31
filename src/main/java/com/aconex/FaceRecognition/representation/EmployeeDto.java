@@ -2,9 +2,9 @@ package com.aconex.FaceRecognition.representation;
 
 public class EmployeeDto {
 
-    String employeeId;
-    String name;
-    String designation;
+    private String employeeId;
+    private String name;
+    private String designation;
 
     public EmployeeDto(){
 
@@ -14,5 +14,16 @@ public class EmployeeDto {
         this.employeeId=employeeId;
         this.name=name;
         this.designation=designation;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+    public String getDesignation(){
+        return designation;
     }
 }

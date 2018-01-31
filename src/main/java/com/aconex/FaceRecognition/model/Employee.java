@@ -7,28 +7,28 @@ import javax.persistence.Id;
 public class Employee {
 
     @Id
-    private String personId;
-    private String employeeId;
+    private String personid;
+    private String employeeid;
     private String name;
     private String designation;
 
     public Employee(){
 
     }
-    public Employee(String personId, String employeeId, String name, String designation){
+    public Employee(String personid, String employeeid, String name, String designation){
 
-        this.personId = personId;
-        this.employeeId = employeeId;
+        this.personid = personid;
+        this.employeeid = employeeid;
         this.name = name;
         this.designation = designation;
     }
 
     public String getPersonId() {
-        return personId;
+        return personid;
     }
 
     public String getEmployeeId() {
-        return employeeId;
+        return employeeid;
     }
 
     public String getName() {

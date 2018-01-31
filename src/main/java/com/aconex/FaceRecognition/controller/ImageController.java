@@ -31,13 +31,14 @@ public class ImageController{
         try {
 
             byte[] imageBytes = Base64.getDecoder().decode(imageDto.getImage().substring(22));
-            return faceDetector.detectFace(imageBytes);
+            EmployeeDto employeeDto=faceDetector.detectFace(imageBytes);
+            System.out.println(employeeDto.getName());
+            return employeeDto;
 
 
-        }
-        catch(Exception e){
+        }catch(Exception e){
                 e.printStackTrace();
-            }
-            return null;
+        }
+        return null;
     }
 }
