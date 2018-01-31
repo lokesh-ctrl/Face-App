@@ -1,5 +1,6 @@
 package com.aconex.FaceRecognition.services;
 
+import com.aconex.FaceRecognition.representation.EmployeeDto;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -30,7 +31,7 @@ public class FaceDetector{
     }
 
 
-    public void detectFace(byte[] imageBytes){
+    public EmployeeDto detectFace(byte[] imageBytes){
 
         HttpClient httpclient = new DefaultHttpClient();
 
@@ -59,11 +60,12 @@ public class FaceDetector{
             if (entity != null){
 
                 String faceID= EntityUtils.toString(entity).substring(12,48);
-                faceIdentity.identifyFace(faceID);
+                return faceIdentity.identifyFace(faceID);
 
             }
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+        return null;
     }
 }

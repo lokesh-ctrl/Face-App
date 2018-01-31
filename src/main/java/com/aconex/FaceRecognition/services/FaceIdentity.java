@@ -1,5 +1,6 @@
 package com.aconex.FaceRecognition.services;
 
+import com.aconex.FaceRecognition.representation.EmployeeDto;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -16,7 +17,7 @@ import java.net.URI;
 @Service
 public class FaceIdentity{
 
-    public void identifyFace(String FaceId){
+    public EmployeeDto identifyFace(String FaceId){
 
         HttpClient httpclient = HttpClients.createDefault();
 
@@ -45,5 +46,6 @@ public class FaceIdentity{
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
+        return null;
     }
 }
