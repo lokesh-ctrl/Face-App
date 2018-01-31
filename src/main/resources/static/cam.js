@@ -80,7 +80,10 @@ document.addEventListener('DOMContentLoaded', function () {
             dataType: 'json',
             data: JSON.stringify(a),
             success: function(dataString) {
-                console.log(dataString);
+                console.log(dataString.employeeId);
+                var detailsContainer=document.getElementById('container2');
+                detailsContainer.innerHTML="<div> <li> <ul>ID:"+dataString.employeeId+"</ul> <ul>Name: "+dataString.name+"</ul> <ul>Designation: "+dataString.designation+"</ul> </li></div>";
+
             }
         });
     });
