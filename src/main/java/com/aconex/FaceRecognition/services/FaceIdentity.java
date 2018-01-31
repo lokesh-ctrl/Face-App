@@ -9,6 +9,7 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.net.URI;
@@ -17,6 +18,11 @@ import java.net.URI;
 @Service
 public class FaceIdentity{
 
+    private EmployeeService employeeService;
+    @Autowired
+    FaceIdentity(EmployeeService employeeService){
+        this.employeeService = employeeService;
+    }
     public EmployeeDto identifyFace(String FaceId){
 
         HttpClient httpclient = HttpClients.createDefault();
@@ -40,7 +46,7 @@ public class FaceIdentity{
 
             if (entity != null){
                 String RecognizedPersonID= EntityUtils.toString(entity);
-                System.out.println(RecognizedPersonID);
+                return employeeService.getPersonDetails(RecognizedPersonID.substring(77,115));
             }
 
         }catch (Exception e){
