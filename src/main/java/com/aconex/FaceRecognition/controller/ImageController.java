@@ -15,7 +15,7 @@ import com.aconex.FaceRecognition.services.FaceDetector;
 
 @RestController
 @RequestMapping("/controlImg")
-public class ImageController{
+public class ImageController {
 
     private FaceDetector faceDetector;
 
