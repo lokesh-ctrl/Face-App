@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
             success: function(dataString) {
                 console.log(dataString.employeeId);
                 var detailsContainer=document.getElementById('container2');
-                detailsContainer.innerHTML="<div> <li> <ul>ID:"+dataString.employeeId+"</ul> <ul>Name: "+dataString.name+"</ul> <ul>Designation: "+dataString.designation+"</ul> </li></div>";
+                detailsContainer.innerHTML="<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:"+dataString.employeeId+"</li> <li>Name: "+dataString.name+"</li> <li>Designation: "+dataString.designation+"</li> </ul></div>";
 
             }
         });
