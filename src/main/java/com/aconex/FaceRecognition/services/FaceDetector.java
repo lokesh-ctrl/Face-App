@@ -20,7 +20,7 @@ import java.net.URI;
 public class FaceDetector{
 
     public static final String subscriptionKey = "a57575674bb44929b470d4e60a4994f0";
-    public static final String uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+    public static final String URI_BASE = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
 
     private FaceIdentity faceIdentity;
 
@@ -37,7 +37,7 @@ public class FaceDetector{
 
         try{
 
-            URIBuilder builder = new URIBuilder(uriBase);
+            URIBuilder builder = new URIBuilder(URI_BASE);
             builder.setParameter("returnFaceId", "true");
             builder.setParameter("returnFaceLandmarks", "false");
             builder.setParameter("returnFaceAttributes", "");

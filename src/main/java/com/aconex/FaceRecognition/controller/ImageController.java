@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.Base64;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 import com.aconex.FaceRecognition.services.FaceDetector;
 
 
@@ -20,24 +23,24 @@ public class ImageController {
     private FaceDetector faceDetector;
 
     @Autowired
-    public ImageController(FaceDetector faceDetector){
+    public ImageController(FaceDetector faceDetector) {
 
-        this.faceDetector=faceDetector;
+        this.faceDetector = faceDetector;
     }
 
     @PostMapping(produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
-    public EmployeeDto recognizeFace(@RequestBody ImageDto imageDto){
+    public EmployeeDto recognizeFace(@RequestBody ImageDto imageDto) {
 
         try {
 
             byte[] imageBytes = Base64.getDecoder().decode(imageDto.getImage().substring(22));
-            EmployeeDto employeeDto=faceDetector.detectFace(imageBytes);
+            EmployeeDto employeeDto = faceDetector.detectFace(imageBytes);
             System.out.println(employeeDto.getName());
             return employeeDto;
 
 
-        }catch(Exception e){
-                e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
