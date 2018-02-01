@@ -1,16 +1,11 @@
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Material Icons'), local('MaterialIcons-Regular'), url(../fonts/MaterialIcons-Regular.woff2) format('woff2');
-}
+
 .header{
     display: block;
     text-align: center;
     border-style: none;
     border: 20px;
     background-color: #AD2E4F;
-   font-size: 2.5e;
+   font-size: 2.5em;
 }
 .container{
     height: 70%;

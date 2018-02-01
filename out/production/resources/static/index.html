@@ -33,31 +33,20 @@
                 <a href="#" id="download-photo"title="Save Photo" value="" class="disabled"><i class="material-icons">CONFIRM</i></a>
             </div>
 
-        <!-- Hidden canvas element. Used for taking snapshot of video. -->
+            <
+
             <canvas></canvas>
 
         </div>
 
     </div>
+    <div value="" id="Datavalue"></div>
+
     <div class="container2" id="container2"></div>
 </div>
 <div class="footer"></div>
 <script src="cam.js" type="text/javascript"></script>
 <script src="src/client/public/bundle.js" type="text/javascript"></script>
-<script>
-// Register Service Worker.
-
-if ('serviceWorker' in navigator) {
-    // Path is relative to the origin, not project root.
-    navigator.serviceWorker.register('sw.js')
-    .then(function(reg) {
-        console.log('Registration succeeded. Scope is ' + reg.scope);
-    })
-    .catch(function(error) {
-        console.error('Registration failed with ' + error);
-    });
-}
-
-</script>
+<script src="RegisterServiceWorkerInstall.js" type="text/javascript"></script>
 </body>
 </html>

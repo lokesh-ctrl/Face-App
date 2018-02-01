@@ -8,3 +8,16 @@ spring:
     password: mysecretpassword
     testWhileIdle: true
     validationQuery: SELECT 1
+---
+spring:
+  profiles: test
+  datasource:
+    url: jdbc:h2:mem:faap;
+    driverClassName: org.h2.Driver
+    username: faap
+    password: mysecretpassword
+    testWhileIdle: true
+    validationQuery: SELECT 1
+---
+flyway:
+  locations: db/migration/V1_1__create_employee.sql

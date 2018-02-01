@@ -4,13 +4,14 @@ import ReactDOM from 'react-dom'
 
 class App extends React.Component{
     render(){
-        return(<div id="">
+        return(<div>
                 <div>Details of the person</div>
             </div>
-        )
+            )
+
     }
     componentWillMount(){
     }
 }
 
-ReactDOM.render(<App />, document.getElementById("container1"));
+ReactDOM.render(<App />, document.getElementById("container2"));
