@@ -1,6 +1,5 @@
 package com.aconex.FaceRecognition.controller;
 
-import com.aconex.FaceRecognition.model.Employee;
 import com.aconex.FaceRecognition.representation.EmployeeDto;
 import com.aconex.FaceRecognition.representation.ImageDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +34,6 @@ public class ImageController {
 
             byte[] imageBytes = Base64.getDecoder().decode(imageDto.getImage().substring(22));
             EmployeeDto employeeDto = faceDetector.detectFace(imageBytes);
-            System.out.println(employeeDto.getName());
             return employeeDto;
 
 

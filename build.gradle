@@ -2,6 +2,7 @@ buildscript {
 	ext {
 		springBootVersion = '1.5.9.RELEASE'
 		lombokVersion = '1.16.18'
+        jsonVersion = '20171018'
 		apply plugin: 'groovy'
 	}
 	repositories {
@@ -29,6 +30,8 @@ repositories {
 
 dependencies {
 
+	compileClasspath("org.json:json:${jsonVersion}")
+	runtimeClasspath("org.json:json:${jsonVersion}")
     compile ('org.springframework.boot:spring-boot-starter')
     compile ('org.springframework.boot:spring-boot-starter-jetty')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
