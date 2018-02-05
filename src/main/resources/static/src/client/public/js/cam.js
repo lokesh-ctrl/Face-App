@@ -80,10 +80,13 @@ document.addEventListener('DOMContentLoaded', function () {
             dataType: 'json',
             data: JSON.stringify(a),
             success: function(dataString) {
-                console.log(dataString.employeeId);
                 var detailsContainer=document.getElementById('container2');
-                detailsContainer.innerHTML="<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:"+dataString.employeeId+"</li> <li>Name: "+dataString.name+"</li> <li>Designation: "+dataString.designation+"</li> </ul></div>";
-
+                if(dataString.employeeId==null){
+                    detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></div>"
+                }
+                else {
+                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + dataString.employeeId + "</li> <li>Name: " + dataString.name + "</li> <li>Designation: " + dataString.designation + "</li> </ul></div>";
+                }
             }
         });
     });
