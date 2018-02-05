@@ -87,9 +87,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 else {
                     detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + dataString.employeeId + "</li> <li>Name: " + dataString.name + "</li> <li>Designation: " + dataString.designation + "</li> </ul></div>";
                 }
-                location={href:"http://localhost:8080" }
+
                 setTimeout(function () {
-                    location.reload()
+                    window.location.href = "http://localhost:8080";
 
 
                 },10000)
