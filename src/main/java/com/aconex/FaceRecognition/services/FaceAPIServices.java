@@ -1,5 +1,7 @@
 package com.aconex.FaceRecognition.services;
 
+import com.aconex.FaceRecognition.representation.FaceIdentifyBodyDto;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -67,7 +69,14 @@ public class FaceAPIServices {
             request.setHeader("Content-Type", "application/json");
             request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-            String body = "{\"personGroupId\":\"interns-group-00\",\"faceIds\":[\""+faceId+"\"],\"maxNumOfCandidatesReturned\":1,\"confidenceThreshold\": \"0.2\"}";
+            String[] faceIds=new String[1];
+            faceIds[0]=faceId;
+
+            FaceIdentifyBodyDto faceIdentifyBodyDto=new FaceIdentifyBodyDto("interns-group-00",faceIds,"1","0.2");
+
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            String body=objectMapper.writeValueAsString(faceIdentifyBodyDto);
 
             StringEntity reqEntity = new StringEntity(body);
             request.setEntity(reqEntity);

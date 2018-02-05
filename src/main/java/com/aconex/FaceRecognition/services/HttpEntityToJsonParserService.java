@@ -26,9 +26,9 @@ public class HttpEntityToJsonParserService {
 
         JSONObject jsonObject=jsonArrayBody.getJSONObject(0);
 
-        JSONArray jsonArrayCndidates=jsonObject.getJSONArray("candidates");
+        JSONArray jsonArrayCandidates=jsonObject.getJSONArray("candidates");
 
-        return jsonArrayCndidates.getJSONObject(0).getString("personId");
+        return jsonArrayCandidates.getJSONObject(0).getString("personId");
 
     }
 }
