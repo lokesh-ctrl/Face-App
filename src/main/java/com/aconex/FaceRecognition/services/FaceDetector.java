@@ -27,7 +27,11 @@ public class FaceDetector{
 
             HttpEntity httpEntity = faceApiServices.faceDetectionRequestToFaceAPI(imageBytes);
 
-            return faceIdentity.identifyFace(getFaceId(httpEntity), faceApiServices);
+            String faceId=getFaceId(httpEntity);
+
+            if(faceId==null) return new EmployeeDto();
+
+            return faceIdentity.identifyFace(faceId, faceApiServices);
 
         }catch (Exception e){
             e.printStackTrace();

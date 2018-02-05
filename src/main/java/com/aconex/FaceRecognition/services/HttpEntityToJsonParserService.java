@@ -9,26 +9,39 @@ import java.io.IOException;
 
 public class HttpEntityToJsonParserService {
 
-    public static String getFaceId(HttpEntity httpEntity)throws IOException{
+    public static String getFaceId(HttpEntity httpEntity){
 
-        String httpResponseBody= EntityUtils.toString(httpEntity);
+        try {
 
-        JSONArray jsonArray=new JSONArray(httpResponseBody);
+            String httpResponseBody = EntityUtils.toString(httpEntity);
 
-        return jsonArray.getJSONObject(0).getString("faceId");
+            JSONArray jsonArray = new JSONArray(httpResponseBody);
+
+            return jsonArray.getJSONObject(0).getString("faceId");
+        }catch(Exception e){
+            return null;
+        }
     }
 
-    public static String getPersonId(HttpEntity httpEntity)throws IOException{
+    public static String getPersonId(HttpEntity httpEntity){
 
-        String httpResponseBody= EntityUtils.toString(httpEntity);
+        try {
 
-        JSONArray jsonArrayBody=new JSONArray(httpResponseBody);
+            String httpResponseBody = EntityUtils.toString(httpEntity);
 
-        JSONObject jsonObject=jsonArrayBody.getJSONObject(0);
+            JSONArray jsonArrayBody = new JSONArray(httpResponseBody);
 
-        JSONArray jsonArrayCandidates=jsonObject.getJSONArray("candidates");
+            JSONObject jsonObject = jsonArrayBody.getJSONObject(0);
 
-        return jsonArrayCandidates.getJSONObject(0).getString("personId");
+            JSONArray jsonArrayCandidates = jsonObject.getJSONArray("candidates");
+
+            return jsonArrayCandidates.getJSONObject(0).getString("personId");
+
+        }catch (Exception e){
+
+            return null;
+
+        }
 
     }
 }

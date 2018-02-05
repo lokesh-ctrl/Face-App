@@ -27,7 +27,11 @@ public class FaceIdentity{
 
             HttpEntity httpEntity= faceApiServices.faceIdentifyRequestToFaceAPI(faceId);
 
-            return employeeService.getPersonDetails(getPersonId(httpEntity));
+            String personId=getPersonId(httpEntity);
+
+            if(personId==null) new EmployeeDto();
+
+            return employeeService.getPersonDetails(personId);
 
         }catch (Exception e){
             e.printStackTrace();
