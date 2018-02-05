@@ -72,7 +72,7 @@ public class FaceAPIServices {
             String[] faceIds=new String[1];
             faceIds[0]=faceId;
 
-            FaceIdentifyBodyDto faceIdentifyBodyDto=new FaceIdentifyBodyDto("interns-group-00",faceIds,"1","0.2");
+            FaceIdentifyBodyDto faceIdentifyBodyDto=new FaceIdentifyBodyDto("interns-group-00",faceIds,"1","0.5");
 
             ObjectMapper objectMapper = new ObjectMapper();
 
