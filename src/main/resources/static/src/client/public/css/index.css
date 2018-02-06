@@ -20,14 +20,8 @@
     width:80%;
 }
 .footerLine{
-    display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: auto;
-    margin-right: auto;
-    border-width: 3px;
-    border-top: 3px dashed #111111;
-    width:80%;
+
+    bottom: 0;
 }
 .container{
 
@@ -44,6 +38,31 @@
     height:14%;
     text-align: center;
     font-size: large;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-width: 3px;
+    border-top: 3px dashed #111111;
+    width:80%;
+    position: fixed;
+
+}
+.dotted{
+    border:3px dotted black;
+    border-style: none none dotted;
+    color: black;
+    margin-bottom: 0%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.footer_fixed{
+    font-size: large;
+    text-align: center;
 }
 
 .container>div{
