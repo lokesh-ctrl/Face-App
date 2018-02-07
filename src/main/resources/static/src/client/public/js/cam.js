@@ -3,11 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var video = document.querySelector('#camera-stream'),
         image = document.querySelector('#snap'),
-        start_camera = document.querySelector('#start-camera'),
-        controls = document.querySelector('.controls'),
-        take_photo_btn = document.querySelector('#take-photo'),
-        delete_photo_btn = document.querySelector('#delete-photo'),
-        download_photo_btn = document.querySelector('#download-photo'),
         error_message = document.querySelector('#error-message');
 
     navigator.getMedia = (
@@ -46,71 +41,52 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    start_camera.addEventListener("click", function(e) {
-
-        e.preventDefault();
-
-        video.play();
-        showVideo();
-
-    });
 
 
-    take_photo_btn.addEventListener("click", function(e) {
-
-        e.preventDefault();
-
-        var snap = takeSnapshot();
+    function takingSnap(){
+        var setIntervalId = setInterval(function(){var snap = takeSnapshot();
         img=snap;
         image.setAttribute('src', snap);
-        image.classList.add("visible");
 
-        delete_photo_btn.classList.remove("disabled");
-        download_photo_btn.classList.remove("disabled");
-        video.pause();
+            var a={image:img};
+            $.ajax({
+                type: "POST",
+                url: "/controlImg",
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify(a),
+                success: function(dataString) {
+                    if(dataString==="success"){
+                        clearInterval(setIntervalId);
+                        video.pause();
+                        image.classList.add("visible");
+                        $.ajax({
+                            type: "GET",
+                            url: "/recognize",
+                            success:function(detailsString){
+                                if(detailsString.employeeId==null){
+                                    detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></div>"
+                                }
+                                else {
+                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + dataString.employeeId + "</li> <li>Name: " + dataString.name + "</li> <li>Designation: " + dataString.designation + "</li> </ul></div>";
+                                }
 
-    });
+                            }
 
-    download_photo_btn.addEventListener("click", function(e) {
-        var a={image:img};
-        $.ajax({
-            type: "POST",
-            url: "/controlImg",
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            data: JSON.stringify(a),
-            success: function(dataString) {
-                var detailsContainer=document.getElementById('container2');
-                if(dataString.employeeId==null){
-                    detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></div>"
+                    })}
+                    setTimeOut(function(){
+                        video.play();
+                        takingSnap();
+                    },10000)
+
+
                 }
-                else {
-                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + dataString.employeeId + "</li> <li>Name: " + dataString.name + "</li> <li>Designation: " + dataString.designation + "</li> </ul></div>";
-                }
+            });
 
-                setTimeout(function () {
-                    window.location.href = "http://localhost:8080";
+    },1000);};
 
 
-                },10000)
-            }
-        });
-    });
 
-
-    delete_photo_btn.addEventListener("click", function(e) {
-
-        e.preventDefault();
-
-        image.setAttribute('src', "");
-        image.classList.remove("visible");
-
-        delete_photo_btn.classList.add("disabled");
-        download_photo_btn.classList.add("disabled");
-
-        video.play();
-
-    });
 
 
 
@@ -137,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function showVideo() {
         hideUI();
         video.classList.add("visible");
-        controls.classList.add("visible");
+        takingSnap();
     }
 
 
@@ -155,10 +131,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     function hideUI() {
-
-
-        controls.classList.remove("visible");
-        start_camera.classList.remove("visible");
         video.classList.remove("visible");
         snap.classList.remove("visible");
         error_message.classList.remove("visible");
