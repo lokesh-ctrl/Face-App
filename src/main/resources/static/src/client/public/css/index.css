@@ -99,12 +99,12 @@ html{
 }
 .Admincontainer{
     height: 70%;
-    max-width: inherit;
+    max-width: 50px;
     margin-top: 1%;
     margin-left: 10%;
     margin-bottom: 1%;
     margin-right: 10%;
-    padding: 20px;
+    padding: 10%;
     background-color: #cccccc;
     width: max-content;
 }
