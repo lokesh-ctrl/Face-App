@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             type: "GET",
                             url: "/recognize",
                             success:function(detailsString){
+                                document.getElementById("loader").style.display = "none";
                                 if(detailsString.employeeId==null){
                                     detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></div>"
                                 }
@@ -76,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     })}
                     setTimeOut(function(){
-                        document.getElementById("loader").style.display = "none";
+
                         video.play();
                         takingSnap();
                     },10000)
