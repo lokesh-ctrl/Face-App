@@ -749,3 +749,8 @@ body{
         background-color:rgb(255,255,255);
     }
 }
+
+#openDoor{
+    color: #4CAF50;
+    border-radius: 5px;
+}

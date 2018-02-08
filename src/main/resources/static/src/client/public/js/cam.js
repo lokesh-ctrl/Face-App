@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></div>"
                                 }
                                 else {
-                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + dataString.employeeId + "</li> <li>Name: " + dataString.name + "</li> <li>Designation: " + dataString.designation + "</li> </ul></div>";
+                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + dataString.employeeId + "</li> <li>Name: " + dataString.name + "</li> <li>Designation: " + dataString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
                                 }
 
                             }
