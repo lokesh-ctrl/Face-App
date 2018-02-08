@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 data: JSON.stringify(a),
                 success: function(dataString) {
                     if(dataString==="success"){
+                        document.getElementById("loader").style.display = "block";
                         clearInterval(setIntervalId);
                         video.pause();
                         image.classList.add("visible");
@@ -75,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     })}
                     setTimeOut(function(){
+                        document.getElementById("loader").style.display = "none";
                         video.play();
                         takingSnap();
                     },10000)
