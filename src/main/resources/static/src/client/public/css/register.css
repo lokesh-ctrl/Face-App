@@ -1,0 +1,50 @@
+
+.header{
+    display: block;
+    text-align: center;
+    border-style: none;
+    border-radius: 5%;
+    border: 15px;
+    font-size: 2.5em;
+    height: 14%;
+}
+.headerLine{
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 3px;
+    width:80%;
+}
+.container{
+
+    height: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-rows: 1fr;
+    grid-gap: 20px;
+    width: auto;
+
+}
+
+.footer{
+    height:14%;
+    text-align: center;
+    font-size: large;
+    bottom: 0;
+    position: fixed;
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-width: 3px;
+    border-top: 3px dashed #111111;
+    width:80%;
+
+
+}
+
