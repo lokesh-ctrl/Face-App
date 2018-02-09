@@ -11,16 +11,18 @@ public class Employee {
     private String employeeid;
     private String name;
     private String designation;
+    private int isadmin=0;
 
     public Employee(){
 
     }
-    public Employee(String personid, String employeeid, String name, String designation){
+    public Employee(String personid, String employeeid, String name, String designation,int isadmin){
 
         this.personid = personid;
         this.employeeid = employeeid;
         this.name = name;
         this.designation = designation;
+        this.isadmin=isadmin;
     }
 
     public String getPersonId() {
@@ -37,6 +39,10 @@ public class Employee {
 
     public String getDesignation() {
         return designation;
+    }
+
+    public int getIsAdmin() {
+        return isadmin;
     }
 }
 
