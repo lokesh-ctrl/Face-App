@@ -18,80 +18,25 @@ document.addEventListener('DOMContentLoaded', function () {
     if(!navigator.getMedia){
         displayErrorMessage("Your browser doesn't have support for the navigator.getUserMedia interface.");
     }
-    else{
-        navigator.getMedia(
-            {
-                video: true,
-                audio: false
-            },
-            function(stream) {
+    else navigator.getMedia(
+        {
+            video: true,
+            audio: false
+        },
+        function (stream) {
+            video.src = window.URL.createObjectURL(stream);
 
-                video.src = window.URL.createObjectURL(stream);
+            var playPromise = video.play();
 
-                video.play();
-                video.onplay = function() {
-                    showVideo();
-                };
+            video.onplay = function () {
+                showVideo();
+            };
 
-            },
-            function(err) {
-                displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err);
-            }
-        );
-    }
-
-
-
-
-    function takingSnap(){
-        var setIntervalId = setInterval(function(){var snap = takeSnapshot();
-        img=snap;
-        image.setAttribute('src', snap);
-
-            var a={image:img};
-            $.ajax({
-                type: "POST",
-                url: "/controlImg",
-                contentType: 'application/json; charset=utf-8',
-                dataType: 'json',
-                data: JSON.stringify(a),
-                success: function(dataString) {
-                    if(dataString==="success"){
-                        document.getElementById("loader").style.display = "block";
-                        clearInterval(setIntervalId);
-                        video.pause();
-                        image.classList.add("visible");
-                        $.ajax({
-                            type: "GET",
-                            url: "/recognize",
-                            success:function(detailsString){
-                                document.getElementById("loader").style.display = "none";
-                                if(detailsString.employeeId==null){
-                                    detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></div>"
-                                }
-                                else {
-                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + dataString.employeeId + "</li> <li>Name: " + dataString.name + "</li> <li>Designation: " + dataString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
-                                }
-
-                            }
-
-                    })}
-                    setTimeOut(function(){
-                        video.play();
-                        takingSnap();
-                    },10000);
-
-
-                }
-            });
-
-    },1000);};
-
-
-
-
-
-
+        },
+        function (err) {
+            displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err);
+        }
+    );
     function takeSnapshot() {
 
         var hidden_canvas = document.querySelector('canvas'),
@@ -110,6 +55,70 @@ document.addEventListener('DOMContentLoaded', function () {
             return hidden_canvas.toDataURL('image/png');
         }
     }
+
+    function takingSnap(){
+        setTimeout(function (){var snap = takeSnapshot();
+            img=snap;
+            video.pause();
+            image.setAttribute('src', snap);
+
+
+            },10000);
+
+
+    }
+
+
+    function takingSnap(){
+        var setIntervalId = setInterval(function(){var snap = takeSnapshot();
+        img=snap;
+        image.setAttribute('src', snap);
+
+            var a={image:img};
+            $.ajax({
+                type: "POST",
+                url: "/controlImg",
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify(a),
+                success: function(dataString) {
+                    if(dataString==="success"){
+                        document.getElementById("loader").style.visibility="visible";
+                        clearInterval(setIntervalId);
+                        video.pause();
+                        $.ajax({
+                            type: "GET",
+                            url: "/recognize",
+                            success:function(detailsString){
+                                document.getElementById("loader").style.display = "none";
+                                if(detailsString.employeeId==null){
+                                    detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></div>"
+                                }
+                                else {
+                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + dataString.employeeId + "</li> <li>Name: " + dataString.name + "</li> <li>Designation: " + dataString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
+                                }
+
+                            }
+
+                    })}
+                    setTimeOut(function(){
+                        video.play();
+                        document.getElementById("loader").style.visibility="hidden";
+                        takingSnap();
+                    },10000);
+
+
+                }
+            });
+
+    },1000);};
+
+
+
+
+
+
+
 
 
     function showVideo() {
@@ -136,6 +145,8 @@ document.addEventListener('DOMContentLoaded', function () {
         video.classList.remove("visible");
         snap.classList.remove("visible");
         error_message.classList.remove("visible");
+        document.getElementById("loader").style.display = "block";
     }
 
 });
+

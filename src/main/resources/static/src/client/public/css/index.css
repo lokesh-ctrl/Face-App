@@ -146,7 +146,7 @@ html{
 }
 
 .app img#snap{
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -170,7 +170,8 @@ html{
 
 .app video#camera-stream.visible,
 .app img#snap.visible,
-.app #error-message.visible
+.app #error-message.visible,
+#loader .visible
 {
     display: block;
 }
@@ -539,6 +540,7 @@ body{
     margin:auto;
     top:45%;
     left: 45%;
+    visibility: hidden;
 }
 
 .blockG{
