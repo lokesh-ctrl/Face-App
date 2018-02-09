@@ -6,6 +6,6 @@ import com.aconex.FaceRecognition.representation.EmployeeDto;
 public class ObjectConverter {
 
     public static EmployeeDto dto(Employee employee){
-        return new EmployeeDto(employee.getEmployeeId(),employee.getName(),employee.getDesignation());
+        return new EmployeeDto(employee.getEmployeeId(),employee.getName(),employee.getDesignation(),employee.getIsAdmin());
     }
 }
