@@ -122,7 +122,12 @@
     margin-left: 10%;
 }
 
-
+.first{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+}
 .details{
     margin-left: 10%;
     font-size: larger;
