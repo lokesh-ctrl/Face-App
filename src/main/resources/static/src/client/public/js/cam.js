@@ -77,10 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     })}
                     setTimeOut(function(){
-
                         video.play();
                         takingSnap();
-                    },10000)
+                    },10000);
 
 
                 }
