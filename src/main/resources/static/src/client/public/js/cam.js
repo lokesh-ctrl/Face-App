@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 data: JSON.stringify(a),
                 success: function(dataString) {
                     if(dataString==="success"){
+                        document.getElementById("loader").style.display = "block";
                         clearInterval(setIntervalId);
                         video.pause();
                         image.classList.add("visible");
@@ -64,17 +65,19 @@ document.addEventListener('DOMContentLoaded', function () {
                             type: "GET",
                             url: "/recognize",
                             success:function(detailsString){
+                                document.getElementById("loader").style.display = "none";
                                 if(detailsString.employeeId==null){
                                     detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></div>"
                                 }
                                 else {
-                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + dataString.employeeId + "</li> <li>Name: " + dataString.name + "</li> <li>Designation: " + dataString.designation + "</li> </ul></div>";
+                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + dataString.employeeId + "</li> <li>Name: " + dataString.name + "</li> <li>Designation: " + dataString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
                                 }
 
                             }
 
                     })}
                     setTimeOut(function(){
+
                         video.play();
                         takingSnap();
                     },10000)
