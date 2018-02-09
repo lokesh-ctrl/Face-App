@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             success:function(detailsString){
                                 updateStatus(60);
                                 document.getElementById("loader").style.display = "none";
+                                detailsContainer=document.getElementById("container2");
                                 if(detailsString.employeeId==null){
                                     updateStatus(100);
                                     detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></div>"
