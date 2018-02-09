@@ -23,7 +23,7 @@ public class EmployeeRepositoryTest {
 
     @Test
     public void WhenFindByPersonId_thenReturnEmployee(){
-        employeeRepository.save(new Employee("f2e7b3d3-ab7c-4bbc-ad45-0fd46883e34e", null, "Siva Prasad Raju", null));
+        employeeRepository.save(new Employee("f2e7b3d3-ab7c-4bbc-ad45-0fd46883e34e", null, "Siva Prasad Raju", null,1));
 
         Employee employee =employeeRepository.findOne("f2e7b3d3-ab7c-4bbc-ad45-0fd46883e34e");
 
