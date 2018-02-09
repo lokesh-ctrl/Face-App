@@ -15,19 +15,8 @@ import java.io.IOException;
 
 public class PersonFaceService {
 
-   /* static {
-       // System.loadLibrary("opencv_java320");
-    }
-*/
+
     public static FindFaceStatusDto FindFace(byte[] imageBytes)throws IOException{
-
-
-        System.out.println("\n\n\n\n\n"+System.getProperty("java.library.path")+"\n\n\n\n");
-
-        //System.load("/home/manoj/Documents/Projects/Face-App/libs/libopencv_java320.so");
-
-
-
 
         CascadeClassifier faceDetector = new CascadeClassifier();
         faceDetector.load("/home/manoj/Documents/Projects/Face-App/src/main/resources/haarcascade_frontalface_alt.xml");
