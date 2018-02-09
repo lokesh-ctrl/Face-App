@@ -22,20 +22,3 @@ class App extends React.Component{
 
 ReactDOM.render(<App />, document.getElementById("container2"));
 
-
-class Status extends React.Component{
-    render(){
-        return(<div>
-                <div><h2><b>Status:</b></h2></div>
-                <div id="myStatus">
-                    <div id="statusBar"></div>
-                </div>
-            </div>
-        )
-
-    }
-    componentWillMount(){
-    }
-}
-
-ReactDOM.render(<Status />, document.getElementById("container3"));

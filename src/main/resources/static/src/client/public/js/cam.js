@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
         function (stream) {
             video.src = window.URL.createObjectURL(stream);
 
-            var playPromise = video.play();
+            video.play();
 
             video.onplay = function () {
                 showVideo();
@@ -83,25 +83,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 data: JSON.stringify(a),
                 success: function(dataString) {
                     if(dataString==="success"){
+                        updateStatus(20);
                         document.getElementById("loader").style.visibility="visible";
                         clearInterval(setIntervalId);
                         video.pause();
+                        updateStatus(40);
                         $.ajax({
                             type: "GET",
                             url: "/recognize",
                             success:function(detailsString){
+                                updateStatus(60);
                                 document.getElementById("loader").style.display = "none";
                                 if(detailsString.employeeId==null){
+                                    updateStatus(100);
                                     detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></div>"
                                 }
                                 else {
+                                    updateStatus(100);
                                     detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + dataString.employeeId + "</li> <li>Name: " + dataString.name + "</li> <li>Designation: " + dataString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
                                 }
 
                             }
 
                     })}
-                    setTimeOut(function(){
+                    setTimeout(function(){
+                        updateStatus(0);
                         video.play();
                         document.getElementById("loader").style.visibility="hidden";
                         takingSnap();
@@ -150,3 +156,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+function updateStatus(percentageStatus){
+    var Status = document.getElementById("statusBar");
+    Status.style.width = percentageStatus+"%";
+    //updtateStatusWithTime(Status,percentageStatus);
+    if(percentageStatus!= 100 && percentageStatus!= 0){
+        setTimeout(function(){
+            updateStatus(percentageStatus+10);
+        },2000);
+    }
+
+}
+/*function updateStatusWithTime(Status,percentageStatus){
+    setInterval(function(Status,percentageStatus){
+        Status.style.width = percentageStatus+"%";
+        percentageStatus++;
+    },1000);
+}*/

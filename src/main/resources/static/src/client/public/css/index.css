@@ -35,7 +35,7 @@
     text-align: center;
     font-size: large;
     bottom: 0;
-    position: fixed;
+    position: relative;
     width: 100%;
     display: block;
     margin-top: 0.5em;
@@ -45,7 +45,7 @@
     border-width: 3px;
     border-top: 3px dashed #111111;
     width:80%;
-    position: fixed;
+
 
 }
 
@@ -63,15 +63,20 @@
 .container3{
     background-color: white ;
     padding-bottom: auto;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 10px;
 }
-#myStatus{
-    width: 80%;
-    background-color: green;
+#myStatus {
+    width: 90%;
+    background-color: white;
+    border: 2px solid black;
 }
-#StatusBar{
-    width: 1%;
+#statusBar {
+
+    width: 0%;
     height: 30px;
-    background-color: #4CAF50;
+    background-color: darkblue;
 }
 .material-icons {
     font-family: 'Material Icons';
