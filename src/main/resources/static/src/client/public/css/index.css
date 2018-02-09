@@ -64,14 +64,16 @@
     background-color: white ;
     padding-bottom: auto;
 }
-#myStatus{
-    width: 80%;
-    background-color: green;
+#Status {
+    width: 90%;
+    background-color: white;
+    border: 2px solid black;
 }
-#StatusBar{
-    width: 1%;
+#statusBar {
+
+    width: 0%;
     height: 30px;
-    background-color: #4CAF50;
+    background-color: green;
 }
 .material-icons {
     font-family: 'Material Icons';
