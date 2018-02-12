@@ -775,3 +775,6 @@ body{
     position: relative;
     left: 10%;
 }
+#instructions{
+    font-size: larger;
+}

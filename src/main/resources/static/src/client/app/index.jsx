@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 
 class App extends React.Component{
     render(){
-        return(<div>
+        return(<div id='instructions'>
                 <div><h2><b>Instructions:</b></h2></div>
                 <ul>
                 <li>Take care while capturing, it should be center aligned</li>
