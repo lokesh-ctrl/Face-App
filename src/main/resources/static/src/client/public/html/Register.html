@@ -39,19 +39,19 @@
     </div>
     <div class="container2">
         <div class="details">
-            <label htmlFor="nameOfThePerson">Name of the employee:</label>
-            <input type="text" name="nameOfThePerson" id="nameOfThePerson" placeholder="Enter Your Name" ></input>
+            <label htmlFor="nameOfThePerson">Name of the Employee:</label>
+            <input type="text" name="nameOfThePerson" value="" id="nameOfThePerson" placeholder="Enter Your Name" ></input>
             <br/>
             <label htmlFor="employeeId">Employee Id: </label>
-            <input type="text" name="employeeId" id="employeeId" placeholder="Enter Employee Id" ></input>
+            <input type="text" name="employeeId" value = "" id="employeeId" placeholder="Enter Employee Id" ></input>
             <br/>
             <label htmlFor="designation">Designation: </label>
-            <input type="text" name="designation" id="designation" placeholder="Enter Designation" ></input>
+            <input type="text" name="designation" value="" id="designation" placeholder="Enter Designation" ></input>
             <br/>
         </div>
     </div>
     <div class="container3">
-        <button id="register">REGISTER</button>
+        <button id="register" onclick="register()">REGISTER</button>
     </div>
     <div id="cameraPopUp" class="camera">
         <div id="start-stream" class="popUpContent">
@@ -63,9 +63,6 @@
 
     </div>
 </div>
-
-<div class="footerLine"></div>
-<div class="footer">Powered by Aconex</div>
 <script src="../js/register.js" type="text/javascript"></script>
 </body>
 </html>

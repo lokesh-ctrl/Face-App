@@ -88,3 +88,23 @@ takePhotoButton.addEventListener('click',function(){
     parentElement.innerHTML="<div><h2>Photo Added</h2></div>"
 });
 
+function register() {
+    var name = document.getElementById("nameOfThePerson").value;
+    var id = document.getElementById("employeeId").value;
+    var designation = document.getElementById("designation").value;
+    console.log(name+id+designation);
+    var a = {image: images, employeeName:name, employeeId:id, employeeDesignation:designation};
+    $.ajax({
+        type: "POST",
+        url: "/register",
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        data: JSON.stringify(a),
+        success: function (dataString) {
+            if(dataString.status=="success"){
+                console.log(' Registration Successed');
+            }
+        }
+
+    })
+}
