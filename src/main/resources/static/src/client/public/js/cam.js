@@ -82,15 +82,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 dataType: 'json',
                 data: JSON.stringify(a),
                 success: function(dataString) {
-                    if(dataString==="success"){
+                    if(dataString.status==="success"){
                         updateStatus(20);
                         document.getElementById("loader").style.visibility="visible";
                         clearInterval(setIntervalId);
                         video.pause();
                         updateStatus(40);
                         $.ajax({
-                            type: "GET",
+                            type: "POST",
                             url: "/recognize",
+                            contentType: 'application/json; charset=utf-8',
+                            dataType: 'json',
+                            data: JSON.stringify(a),
                             success:function(detailsString){
                                 updateStatus(60);
                                 document.getElementById("loader").style.display = "none";
