@@ -4,13 +4,13 @@ import ReactDOM from 'react-dom'
 
 class App extends React.Component{
     render(){
-        return(<div>
+        return(<div id='instructions'>
                 <div><h2><b>Instructions:</b></h2></div>
                 <ul>
                 <li>Take care while capturing, it should be center aligned</li>
-                    <li>Click on "SNAP" button to take the picture.</li>
-                    <li>Use "RETAKE" button, if any problems arises in step2 </li>
-                    <li>Click on "GET DETAILS" button to get the details.</li>
+                    <li>Follow the status bar</li>
+                    <li>After recognizing your face, it will show your details</li>
+                    <li>Please click on opendoor button, to open the door.</li>
                 </ul>
             </div>
             )
