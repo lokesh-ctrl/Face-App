@@ -42,47 +42,49 @@
     margin-right: 10%;
     height:70%;
 }
-
+.boxes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 100px;
+    grid-auto-rows: 100px;
+    grid-gap: 2px;
+}
 
 .column1{
-    float: left;
-    width:16%;
-    padding:10px;
-    height: 180px;
-    background-color: white;
-    border-style: ridge;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 2px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background-image:;
 }
 .column2{
-    float: left;
-    width:16%;
-    padding:10px;
-    height: 180px;
-    background-color: white;
-    border-style: ridge;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 2px;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 .column3{
-    float: left;
-    width:16%;
-    padding:10px;
-    height: 180px;
-    background-color: white;
-    border-style: ridge;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 2px;
+    grid-column-start: 3;
+    grid-column-end: 4;
 }
 .column4{
-    float: left;
-    width:16%;
-    padding:10px;
-    height: 180px;
-    background-color: white;
-    border-style: ridge;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 2px;
+    grid-column-start: 4;
+    grid-column-end: 5;
 }
 .column5{
-    float: left;
-    width:16%;
-    padding:10px;
-    height: 180px;
-    background-color: white;
-    border-style: ridge;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 2px;
+    grid-column-start: 5;
+    grid-column-end: 6;
 }
 
 
@@ -148,58 +150,41 @@
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
 }
-#keyboard {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+
+.camera {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-#keyboard li {
-    float: left;
-    margin: 0 5px 5px 0;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    background: #fff;
-    border: 1px solid #f9f9f9;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
 }
-.capslock, .tab, .left-shift {
-    clear: left;
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
-#keyboard .tab, #keyboard .delete {
-    width: 70px;
-}
-#keyboard .capslock {
-    width: 80px;
-}
-#keyboard .return {
-    width: 77px;
-}
-#keyboard .left-shift {
-    width: 95px;
-}
-#keyboard .right-shift {
-    width: 109px;
-}
-.lastitem {
-    margin-right: 0;
-}
-.uppercase {
-    text-transform: uppercase;
-}
-#keyboard .space {
-    clear: left;
-    width: 681px;
-}
-.on {
-    display: none;
-}
-#keyboard li:hover {
-    position: relative;
-    top: 1px;
-    left: 1px;
-    border-color: #e5e5e5;
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
     cursor: pointer;
 }
