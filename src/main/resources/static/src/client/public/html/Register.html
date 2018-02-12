@@ -20,19 +20,19 @@
 <div class="container">
     <div class="container1">
         <div class="boxes">
-            <div class="column1">
-                <button id="firstButton" class="takePhotoButton" onclick="displayPopUp()">Take Photo</button>
+            <div class="column1" onclick="displayPopUp()">
+                <button id="firstButton" class="takePhotoButton">Take Photo</button>
             </div>
-            <div class="column2">
+            <div class="column2" onclick="displayPopUp()">
                 <button id="secondButton" class="takePhotoButton" onclick="displayPopUp()">Take Photo</button>
             </div>
-            <div class="column3">
+            <div class="column3" onclick="displayPopUp()">
                 <button id="thirdButton" class="takePhotoButton" onclick="displayPopUp()">Take Photo</button>
             </div>
-            <div class="column4">
+            <div class="column4" onclick="displayPopUp()">
                 <button id="fourthButton" class="takePhotoButton" onclick="displayPopUp()">Take Photo</button>
             </div>
-            <div class="column5">
+            <div class="column5" onclick="displayPopUp()">
                 <button id="fifthButton" class="takePhotoButton" onclick="displayPopUp()">Take Photo</button>
             </div>
         </div>
@@ -51,9 +51,10 @@
         </div>
     </div>
     <div class="container3">
+        <button id="register">REGISTER</button>
     </div>
     <div id="cameraPopUp" class="camera">
-        <div id="start-stream">
+        <div id="start-stream" class="popUpContent">
             <video muted id="camera-stream"></video>
             <span class="close">X</span>
             <button id="snap">SNAP</button>

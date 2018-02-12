@@ -1,4 +1,4 @@
-var modal = document.getElementById('cameraPopUp');
+var popUp = document.getElementById('cameraPopUp');
 var video = document.querySelector('#camera-stream')
 var btn = document.getElementsByClassName("takePhotoButton")
 var takePhotoButton = document.getElementById("snap");
@@ -7,18 +7,20 @@ var images = [];
 
 
 function displayPopUp() {
-    modal.style.display = "block";
+    popUp.style.display = "block";
+
+    console.log(event.target);
 }
 
 
 span.onclick = function() {
-    modal.style.display = "none";
+    popUp.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+        popUp.style.display = "none";
     }
 }
 
@@ -78,7 +80,8 @@ function showVideo() {
 
 takePhotoButton.addEventListener('click',function(){
     var image = takeSnapshot();
+    console.log()
     images[images.length]=image;
-    modal.style.display = "none";
+    popUp.style.display = "none";
 });
 
