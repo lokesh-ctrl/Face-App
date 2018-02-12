@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 }
                                 else {
                                     updateStatus(100);
-                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + detailsString.employeeId + "</li> <li>Name: " + detailsString.name + "</li> <li>Designation: " + detailsString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
+                                    detailsContainer.innerHTML = "<div id='details'><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + detailsString.employeeId + "</li> <li>Name: " + detailsString.name + "</li> <li>Designation: " + detailsString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
                                     var opendoor = document.getElementById("openDoor");
                                     opendoor.addEventListener('click', function (){
 
