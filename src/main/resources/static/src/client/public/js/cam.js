@@ -99,12 +99,13 @@ document.addEventListener('DOMContentLoaded', function () {
                                     detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + detailsString.employeeId + "</li> <li>Name: " + detailsString.name + "</li> <li>Designation: " + detailsString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
                                     var opendoor = document.getElementById("openDoor");
                                     opendoor.addEventListener('click', function (){
-                                    setTimeout(function () {
+
 
                                         detailsContainer.innerHTML="<div><h2><b>Instructions:</b></h2></div>";
                                         updateStatus(0);
                                         video.play();
                                         document.getElementById("loader").style.visibility="hidden";
+                                        setTimeout(function () {
                                         takingSnap();
                                     },1000);
                                 });
