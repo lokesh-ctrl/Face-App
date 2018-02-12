@@ -41,37 +41,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var hidden_canvas = document.querySelector('canvas'),
             context = hidden_canvas.getContext('2d');
-
         var width = video.videoWidth,
             height = video.videoHeight;
-
         if (width && height) {
 
             hidden_canvas.width = width;
             hidden_canvas.height = height;
 
             context.drawImage(video, 0, 0, width, height);
-
             return hidden_canvas.toDataURL('image/png');
         }
     }
+    setTimeout(function () {
+        takingSnap();
 
-    function takingSnap(){
-        setTimeout(function (){var snap = takeSnapshot();
-            img=snap;
-            video.pause();
-            image.setAttribute('src', snap);
-
-
-            },10000);
-
-
-    }
+    },1000);
 
 
     function takingSnap(){
-        var setIntervalId = setInterval(function(){var snap = takeSnapshot();
+        var snap = takeSnapshot();
         img=snap;
+
+
         image.setAttribute('src', snap);
 
             var a={image:img};
@@ -85,7 +76,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     if(dataString.status==="success"){
                         updateStatus(20);
                         document.getElementById("loader").style.visibility="visible";
-                        clearInterval(setIntervalId);
                         video.pause();
                         updateStatus(40);
                         $.ajax({
@@ -106,26 +96,36 @@ document.addEventListener('DOMContentLoaded', function () {
                                 }
                                 else {
                                     updateStatus(100);
-                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + detailsString.employeeId + "</li> <li>Name: " + detailsString.name + "</li> <li>Designation: " + detailsString.designation + "</li> </ul></div></<br><button id='openDoor' onclick='opendoor()'>OPEN DOOR</button></div>";
+                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + detailsString.employeeId + "</li> <li>Name: " + detailsString.name + "</li> <li>Designation: " + detailsString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
+                                    var opendoor = document.getElementById("openDoor");
+                                    opendoor.addEventListener('click', function (){
+                                    detailsContainer.innerHTML="<div><h2><b>Instructions:</b></h2></div>";
+                                        updateStatus(0);
+                                        video.play();
+                                        document.getElementById("loader").style.visibility="hidden";
+                                        takingSnap();
+                                    });
                                 }
-                                function opendoor(){
-                                    updateStatus(0);
-                                    video.play();
-                                    document.getElementById("loader").style.visibility="hidden";
-                                    takingSnap();
-                                }
+
+
 
                             }
 
                     })}
+                    else if(dataString.status=="Failure"){
+                        takingSnap();
+                        updateStatus(0);
+
+                    }
 
 
 
 
                 }
+
             });
 
-    },1000);};
+    }
 
 
 
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function showVideo() {
         hideUI();
         video.classList.add("visible");
-        takingSnap();
+
     }
 
 
@@ -168,11 +168,6 @@ function updateStatus(percentageStatus){
     var Status = document.getElementById("statusBar");
     Status.style.width = percentageStatus+"%";
     //updtateStatusWithTime(Status,percentageStatus);
-    if(percentageStatus!= 100 && percentageStatus!= 0){
-        setTimeout(function(){
-            updateStatus(percentageStatus+10);
-        },2000);
-    }
 
 }
 /*function updateStatusWithTime(Status,percentageStatus){
