@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 }
                                 else {
                                     updateStatus(100);
-                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + detailsString.employeeId + "</li> <li>Name: " + detailsStringString.name + "</li> <li>Designation: " + detailsStringString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
+                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + detailsString.employeeId + "</li> <li>Name: " + detailsString.name + "</li> <li>Designation: " + detailsString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
                                 }
 
                             }
