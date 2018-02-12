@@ -94,6 +94,7 @@ function register() {
     var designation = document.getElementById("designation").value;
     console.log(name+id+designation);
     var a = {image: images, employeeName:name, employeeId:id, employeeDesignation:designation};
+    console.log(a);
     $.ajax({
         type: "POST",
         url: "/register",
@@ -103,6 +104,7 @@ function register() {
         success: function (dataString) {
             if(dataString.status=="success"){
                 console.log(' Registration Successed');
+                window.location.href = "https:localhost:8080";
             }
         }
 
