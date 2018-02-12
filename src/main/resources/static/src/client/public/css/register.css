@@ -50,36 +50,35 @@
     grid-gap: 2px;
 }
 
-.column1{
+div .column1{
     border-radius: 2px;
     border-style: solid;
     border-width: 2px;
     grid-column-start: 1;
     grid-column-end: 2;
-    background-image:;
 }
-.column2{
+div .column2{
     border-radius: 2px;
     border-style: solid;
     border-width: 2px;
     grid-column-start: 2;
     grid-column-end: 3;
 }
-.column3{
+div .column3{
     border-radius: 2px;
     border-style: solid;
     border-width: 2px;
     grid-column-start: 3;
     grid-column-end: 4;
 }
-.column4{
+div .column4{
     border-radius: 2px;
     border-style: solid;
     border-width: 2px;
     grid-column-start: 4;
     grid-column-end: 5;
 }
-.column5{
+div .column5{
     border-radius: 2px;
     border-style: solid;
     border-width: 2px;

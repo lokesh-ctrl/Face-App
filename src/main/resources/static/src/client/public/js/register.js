@@ -8,7 +8,7 @@ var images = [];
 
 function displayPopUp() {
     popUp.style.display = "block";
-
+    ClickedElement = event.target;
     console.log(event.target);
 }
 
@@ -19,7 +19,7 @@ span.onclick = function() {
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target == popUp) {
         popUp.style.display = "none";
     }
 }
@@ -80,8 +80,11 @@ function showVideo() {
 
 takePhotoButton.addEventListener('click',function(){
     var image = takeSnapshot();
-    console.log()
-    images[images.length]=image;
+    img = image;
+    images[images.length]=img;
     popUp.style.display = "none";
+    var parentElement = ClickedElement.parentNode;
+    console.log(parentElement);
+    parentElement.innerHTML="<div><h2>Photo Added</h2></div>"
 });
 
