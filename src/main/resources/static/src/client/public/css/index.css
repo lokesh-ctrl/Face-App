@@ -77,7 +77,7 @@
 
     width: 0%;
     height: 20px;
-    background-color: lightgreen;
+    background-color: lightblue;
 }
 .material-icons {
     font-family: 'Material Icons';
@@ -760,7 +760,7 @@ body{
 }
 
 #openDoor{
-    color: #4CAF50;
+    color: #111111;
     border-radius: 5px;
     padding: 5px;
     position:relative;
