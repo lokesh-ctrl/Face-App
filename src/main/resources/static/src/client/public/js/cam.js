@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                 }
 
-                    })}
+                    }})}
                     else if(dataString.status=="Failure"){
                         takingSnap();
                         updateStatus(0);
