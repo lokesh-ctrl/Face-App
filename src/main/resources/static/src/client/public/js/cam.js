@@ -98,24 +98,28 @@ document.addEventListener('DOMContentLoaded', function () {
                                 updateStatus(60);
                                 document.getElementById("loader").style.display = "none";
                                 detailsContainer=document.getElementById("container2");
-                                if(detailsString.employeeId==null){
+                                if(detailsString.employeeId===null){
                                     updateStatus(100);
-                                    detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></div>"
+                                    detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></br><button id='register' onclick='register()'>REGISTER</button></div>"
+                                    updateStatus(0);
+                                    document.getElementById("loader").style.visibility="hidden";
                                 }
                                 else {
                                     updateStatus(100);
-                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + detailsString.employeeId + "</li> <li>Name: " + detailsString.name + "</li> <li>Designation: " + detailsString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
+                                    detailsContainer.innerHTML = "<div><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + detailsString.employeeId + "</li> <li>Name: " + detailsString.name + "</li> <li>Designation: " + detailsString.designation + "</li> </ul></div></<br><button id='openDoor' onclick='opendoor()'>OPEN DOOR</button></div>";
+                                }
+                                function opendoor(){
+                                    updateStatus(0);
+                                    video.play();
+                                    document.getElementById("loader").style.visibility="hidden";
+                                    takingSnap();
                                 }
 
                             }
 
                     })}
-                    setTimeout(function(){
-                        updateStatus(0);
-                        video.play();
-                        document.getElementById("loader").style.visibility="hidden";
-                        takingSnap();
-                    },10000);
+
+
 
 
                 }
