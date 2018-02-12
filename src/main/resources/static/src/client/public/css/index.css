@@ -130,6 +130,7 @@ html{
 .app{
     width: 100%;
     position: relative;
+    border-style: solid;
 }
 
 .app #start-camera{
@@ -763,7 +764,6 @@ body{
     padding: 5px;
     position:relative;
     top: 50%;
-    left: 50%;
     bottom: 100%;
     font-size: xx-large;
     left: 10%;
@@ -777,4 +777,5 @@ body{
 }
 #instructions{
     font-size: larger;
+    left: 10%;
 }
