@@ -97,7 +97,7 @@ function register() {
     var id = document.getElementById("employeeId").value;
     var designation = document.getElementById("designation").value;
     console.log(name+id+designation);
-    var a = {image: images, employeeName:name, employeeId:id, employeeDesignation:designation};
+    var a = {employeeName:name,employeeImages: images,  employeeId:id, employeeDesignation:designation};
     console.log(a);
     window.location = "https://www.w3schools.com/js/js_window_location.asp";
 

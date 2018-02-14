@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     }
     function register() {
-        window.location="http://localhost:8080/src/client/public/htgralml/Register.html"
+        window.location="http://localhost:8080/src/client/public/html/Register.html"
     }
     function tryagain(){
         takingSnap();
