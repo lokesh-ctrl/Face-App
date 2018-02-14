@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 detailsContainer=document.getElementById("container2");
                                 if(detailsString.employeeId===null){
                                     updateStatus(100);
-                                    detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try again by following the instructions or consult the admin</h3></br><button id='register' onclick='register()'>REGISTER</button></div>"
+                                    detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try Again (Or) Register</h3></br><button id='tryAgain' onclick='tryagain()'>TRY AGAIN</button><button id='register' onclick='register()'>REGISTER</button></div>"
                                     updateStatus(0);
                                     document.getElementById("loader").style.visibility="hidden";
                                 }
@@ -127,14 +127,13 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
     }
-
-
-
-
-
-
-
-
+    function register() {
+        window.location="http://localhost:8080/src/client/public/htgralml/Register.html"
+    }
+    function tryagain(){
+        takingSnap();
+        updateStatus(0);
+    }
 
     function showVideo() {
         hideUI();

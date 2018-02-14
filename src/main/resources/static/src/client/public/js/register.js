@@ -85,7 +85,11 @@ takePhotoButton.addEventListener('click',function(){
     popUp.style.display = "none";
     var parentElement = ClickedElement.parentNode;
     console.log(parentElement);
-    parentElement.innerHTML="<div><h2>Photo Added</h2></div>"
+    var img = document.createElement("img");
+    img.width = 250;
+    img.height = 250;
+    img.src =image;
+    parentElement.appendChild(img);
 });
 
 function register() {
@@ -95,6 +99,8 @@ function register() {
     console.log(name+id+designation);
     var a = {image: images, employeeName:name, employeeId:id, employeeDesignation:designation};
     console.log(a);
+    window.location = "https://www.w3schools.com/js/js_window_location.asp";
+
     $.ajax({
         type: "POST",
         url: "/register",
@@ -104,7 +110,9 @@ function register() {
         success: function (dataString) {
             if(dataString.status=="success"){
                 console.log(' Registration Successed');
-                window.location.href = "https:localhost:8080";
+                setTimeout(function () {
+                    window.location = "http:localhost:8080";
+                },1000);
             }
         }
 
