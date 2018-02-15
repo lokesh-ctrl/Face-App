@@ -44,4 +44,30 @@ public class HttpEntityToJsonParserService {
         }
 
     }
+    public static String getRegisteredPersonId(HttpEntity httpEntity){
+
+        try {
+            String httpResponseBody = EntityUtils.toString(httpEntity);
+            JSONObject jsonObject=new JSONObject(httpResponseBody);
+
+            return jsonObject.getString("personId");
+
+
+        }catch(Exception e){
+            return null;
+        }
+    }
+    public static String getRegPersonId(String httpResponseBody){
+
+        try {
+            //String httpResponseBody = EntityUtils.toString(httpEntity);
+            JSONObject jsonObject=new JSONObject(httpResponseBody);
+
+            return jsonObject.getString("personId");
+
+
+        }catch(Exception e){
+            return null;
+        }
+    }
 }

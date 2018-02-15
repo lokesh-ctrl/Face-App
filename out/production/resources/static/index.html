@@ -10,27 +10,31 @@
     <title>Face App</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="src/client/public/css/index.css">
 
 </head>
 <body>
 <div class="header" >FaceApp</div>
+<div class="headerLine"><hr></div>
 
 <div class="container">
     <div class="container1">
 
         <div class="app">
 
-            <a href="#" id="start-camera" class="visible">Touch here to start the app.</a>
             <video muted id="camera-stream"></video>
             <img id="snap">
 
             <p id="error-message"></p>
-
-            <div class="controls">
-                <a href="#" id="delete-photo" title="Retake" class="disabled"><i class="material-icons">RETAKE</i></a>
-                <a href="#" id="take-photo" title="Take Photo"><i class="material-icons">SNAP</i></a>
-                <a href="#" id="download-photo"title="Save Photo" value="" class="disabled"><i class="material-icons">GET DETAILS</i></a>
+            <div id="loader" style="display:none">
+                <div class="blockG" id="rotateG_01"></div>
+                <div class="blockG" id="rotateG_02"></div>
+                <div class="blockG" id="rotateG_03"></div>
+                <div class="blockG" id="rotateG_04"></div>
+                <div class="blockG" id="rotateG_05"></div>
+                <div class="blockG" id="rotateG_06"></div>
+                <div class="blockG" id="rotateG_07"></div>
+                <div class="blockG" id="rotateG_08"></div>
             </div>
 
             <canvas></canvas>
@@ -40,10 +44,17 @@
     </div>
 
     <div class="container2" id="container2"></div>
+    <div class="container3" id="container3">
+            <div><h2><b>Status:</b></h2></div>
+            <div id="myStatus">
+                <div id="statusBar"></div>
+            </div>
+    </div>
 </div>
-<div class="footer"></div>
-<script src="cam.js" type="text/javascript"></script>
-<script src="src/client/public/bundle.js" type="text/javascript"></script>
-<script src="RegisterServiceWorkerInstall.js" type="text/javascript"></script>
+
+
+<script src="src/client/public/js/cam.js" type="text/javascript"></script>
+<script src="src/client/public/js/bundle.js" type="text/javascript"></script>
+<script src="src/client/public/js/RegisterServiceWorkerInstall.js" type="text/javascript"></script>
 </body>
 </html>

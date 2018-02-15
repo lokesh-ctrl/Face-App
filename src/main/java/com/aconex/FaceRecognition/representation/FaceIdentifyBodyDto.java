@@ -2,13 +2,13 @@ package com.aconex.FaceRecognition.representation;
 
 public class FaceIdentifyBodyDto {
 
-    public String personGroupId;
+    private String personGroupId;
 
-    public String[] faceIds;
+    private String[] faceIds;
 
-    public String maxNumOfCandidatesReturned;
+    private String maxNumOfCandidatesReturned;
 
-    public String confidenceThreshold;
+    private String confidenceThreshold;
 
     public FaceIdentifyBodyDto(){
 
