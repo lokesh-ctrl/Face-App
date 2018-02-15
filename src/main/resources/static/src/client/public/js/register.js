@@ -98,7 +98,6 @@ function register() {
     console.log(name+id+designation);
     var a = {employeeName:name,employeeImages: images,  employeeId:id, employeeDesignation:designation};
     console.log(a);
-    window.location = "http:localhost:8080";
 
     $.ajax({
         type: "POST",
@@ -112,7 +111,7 @@ function register() {
                 var container = document.getElementsByClassName("container");
                 container.innerHTML="<div>Registration success</div>";
                 setTimeout(function () {
-                    window.location = "http:localhost:8080";
+                    window.location = '../../../../index.html';
                 },1000);
             }
         }

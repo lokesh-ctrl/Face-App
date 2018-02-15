@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     updateStatus(0);
                                     document.getElementById("loader").style.visibility="hidden";
                                     document.getElementById('register').addEventListener('click',function () {
-                                        window.location="../html/Register.html"
+                                        window.location="/src/client/public/html/Register.html";
                                     });
                                 }
                                 else {
