@@ -90,9 +90,12 @@ document.addEventListener('DOMContentLoaded', function () {
                                 detailsContainer=document.getElementById("container2");
                                 if(detailsString.employeeId===null){
                                     updateStatus(100);
-                                    detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try Again (Or) Register</h3></br><button id='tryAgain' onclick='tryagain()'>TRY AGAIN</button><button id='register' onclick='register()'>REGISTER</button></div>"
+                                    detailsContainer.innerHTML="<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try Again (Or) Register</h3></br><button id='tryAgain'>TRY AGAIN</button><button id='register'>REGISTER</button></div>"
                                     updateStatus(0);
                                     document.getElementById("loader").style.visibility="hidden";
+                                    document.getElementById('register').addEventListener('click',function () {
+                                        window.location="../html/Register.html"
+                                    });
                                 }
                                 else {
                                     updateStatus(100);
@@ -127,9 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
     }
-    function register() {
-        window.location="../html/Register.html"
-    }
+
     function tryagain(){
         takingSnap();
         updateStatus(0);
