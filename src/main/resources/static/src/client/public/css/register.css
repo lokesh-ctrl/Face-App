@@ -261,4 +261,21 @@ label{
     width: inherit;
     height: 200px;
 }
+#snapButtonInPopUp{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.6em;
 
+    width: 100%;
+    padding: 12px 12px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: lightseagreen;
+    color: white;
+}
+#snapButtonInPopUp:hover{
+    background-color: #0b8c84;
+    color: white;
+}
