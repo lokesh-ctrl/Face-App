@@ -106,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 var tryAgain = document.getElementById("tryAgain");
                                 var register = document.getElementById("register");
                                 tryAgain.addEventListener('click', function () {
+                                    detailsContainer.innerHTML = "<div id='instructions'><h2><b>Instructions:</b></h2><ul><li>Take care while capturing, it should be center aligned</li><li>Follow the status bar</li><li>After recognizing your face, it will show your details</li><li>Please click on opendoor button, to open the door.</li></ul></div>";
                                     updateStatus(0);
                                     video.play();
                                     document.getElementById("loader").style.visibility = "hidden";
