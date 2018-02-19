@@ -3,7 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var video = document.querySelector('#camera-stream'),
         image = document.querySelector('#snap'),
-        error_message = document.querySelector('#error-message');
+        error_message = document.querySelector('#error-message'),
+        status = document.getElementById('statusBar');
+    var statusMessageElement = document.getElementById('statusMessage');
+
 
     navigator.getMedia = (
 
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     );
     function takeSnapshot() {
-
+        updateStatusMessage("Streaming on");
         var hidden_canvas = document.querySelector('canvas'),
             context = hidden_canvas.getContext('2d');
         var width = video.videoWidth,
@@ -75,9 +78,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 success: function(dataString) {
                     if(dataString.status==="success"){
                         updateStatus(20);
+                        updateStatusMessage("Person Found");
                         document.getElementById("loader").style.visibility="visible";
                         video.pause();
                         updateStatus(40);
+                        updateStatusMessage("Recognizing Person..");
                         $.ajax({
                             type: "POST",
                             url: "/recognize",
@@ -90,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 detailsContainer=document.getElementById("container2");
                                 if(detailsString.employeeId===null) {
                                     updateStatus(100);
+                                    updateStatusMessage("No details found in the database");
                                     detailsContainer.innerHTML = "<div><h2>NO PERSON DETAILS FOUND.</h2></br><h3>Try Again (Or) Register</h3></br><button id='tryAgain'>TRY AGAIN</button><button id='register'>REGISTER</button></div>"
                                     updateStatus(0);
                                     document.getElementById("loader").style.visibility = "hidden";
@@ -107,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                                 }
                                 else {
+                                    updateStatusMessage("Person Details Found");
                                     updateStatus(100);
                                     detailsContainer.innerHTML = "<div id='details'><h2>PERSON DETAILS:</h2> </br></br> <ul> <li>ID:" + detailsString.employeeId + "</li> <li>Name: " + detailsString.name + "</li> <li>Designation: " + detailsString.designation + "</li> </ul></div></<br><button id='openDoor'>OPEN DOOR</button></div>";
                                     var opendoor = document.getElementById("openDoor");
@@ -143,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function showVideo() {
         hideUI();
         video.classList.add("visible");
+        updateStatusMessage("Streaming On");
 
     }
 
@@ -170,8 +178,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function updateStatus(percentageStatus){
-    var Status = document.getElementById("statusBar");
-    Status.style.width = percentageStatus+"%";
-    //updtateStatusWithTime(Status,percentageStatus);
+    status.style.width = percentageStatus+"%";
 
+}
+
+function updateStatusMessage(message) {
+    statusMessageElement.innerText = message;
 }
