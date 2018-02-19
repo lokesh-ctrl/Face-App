@@ -1,7 +1,7 @@
 var popUp = document.getElementById('cameraPopUp');
 var video = document.querySelector('#camera-stream')
 var btn = document.getElementsByClassName("takePhotoButton")
-var takePhotoButton = document.getElementById("snap");
+var takePhotoButton = document.getElementById("snapButtonInPopUp");
 var span = document.getElementsByClassName("close")[0];
 var images = [];
 
