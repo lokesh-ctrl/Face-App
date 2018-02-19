@@ -106,7 +106,12 @@ document.addEventListener('DOMContentLoaded', function () {
                                 var tryAgain = document.getElementById("tryAgain");
                                 var register = document.getElementById("register");
                                 tryAgain.addEventListener('click', function () {
-                                    window.location = "../../../../index.html";
+                                    updateStatus(0);
+                                    video.play();
+                                    document.getElementById("loader").style.visibility = "hidden";
+                                    setTimeout(function () {
+                                        takingSnap();
+                                    }, 100);
                                 });
                                 register.addEventListener('click', function () {
                                     window.location = "/src/client/public/html/Register.html";
