@@ -97,19 +97,20 @@ function register() {
     var designation = document.getElementById("designation").value;
     console.log(name + id + designation);
     if (images.length < 5) {
-        console.log("Take all the images")
+        console.log("Take all the images");
+        alert("Take all the five images");
     }
     else {
         if (!name) {
-            console.log("name empty");
+            alert("Employee name can not be empty");
         }
         else {
             if (!id) {
-                console.log("id empty");
+                alert("Employee id cannot be empty");
             }
             else {
                 if (!designation) {
-                    console.log('disignation empty')
+                    alert("Employee designation cannot be empty");
                 }
                 else {
                     var a = {
