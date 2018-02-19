@@ -139,10 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
     }
-    function tryAgain(){
-        updateStatus(0);
-    }
-
 
     function showVideo() {
         hideUI();
@@ -179,9 +175,3 @@ function updateStatus(percentageStatus){
     //updtateStatusWithTime(Status,percentageStatus);
 
 }
-/*function updateStatusWithTime(Status,percentageStatus){
-    setInterval(function(Status,percentageStatus){
-        Status.style.width = percentageStatus+"%";
-        percentageStatus++;
-    },1000);
-}*/
