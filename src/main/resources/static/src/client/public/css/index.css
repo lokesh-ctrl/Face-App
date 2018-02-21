@@ -67,6 +67,9 @@
     grid-column-start: 1;
     grid-column-end: 3;
     padding: 10px;
+    width:90%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 #myStatus {
     width: 90%;
