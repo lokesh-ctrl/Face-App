@@ -136,25 +136,26 @@ div .column5{
     padding: 10px;
     height: auto;
     background-color: white;
+    display: flex;
+    justify-content: center;
 }
 #registerButton{
     margin-left: auto;
     margin-right: auto;
     font-size: 1.6em;
-
-    width: 100%;
+    width: 50%;
     padding: 20px 20px;
     margin: 15px 10px;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 6px;
     box-sizing: border-box;
-    background-color: lightseagreen;
+    background-color: rgb(244, 122, 66);
     color: white;
 
 }
 #registerButton:hover{
-    background-color: #0b8c84;
+    background-color: rgb(244, 92, 66);
     color: white;
 }
 .container:after {
@@ -281,7 +282,7 @@ label{
     color: white;
 }
 #snapButtonInPopUp:hover{
-    background-color: #0b8c84;
+    background-color: rgb(244, 122, 66);
     color: white;
 }
 
