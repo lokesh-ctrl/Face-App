@@ -24,7 +24,6 @@ public class EmployeeRegisterService {
 
         HttpEntity httpEntity=faceApiServices.createPersonRequestToFaceAPI(employeeRegisterDto.getEmployeeName(),employeeRegisterDto.getEmployeeDesignation());
         try {
-            //System.out.println("\n\n\n" + EntityUtils.toString(httpEntity) + "\n\n\n");
 
             String employeePersonId=HttpEntityToJsonParserService.getRegPersonId(EntityUtils.toString(httpEntity));
 
