@@ -97,7 +97,6 @@ function register() {
     var designation = document.getElementById("designation").value;
     console.log(name + id + designation);
     if (images.length < 5) {
-        console.log("Take all the images");
         alert("Take all the five images");
     }
     else {
