@@ -90,7 +90,25 @@ takePhotoButton.addEventListener('click',function(){
     img.classList.add('imageClass');
     parentElement.replaceChild(img,ClickedElement);
 });
+function getDetails() {
+    var enteredId = document.getElementById("employeeId").value;
+    var objectOfId = {id:enteredId};
+    $.ajax({
+        type: "POST",
+        url: "/getDetails",
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        data: JSON.stringify(objectOfId),
+        success: function (dataString) {
+            if (dataString.status == "success") {
+                document.getElementById("container").style.display = "block";
+            }
+        }
 
+    })
+
+
+}
 function register() {
     var name = document.getElementById("nameOfThePerson").value;
     var id = document.getElementById("employeeId").value;

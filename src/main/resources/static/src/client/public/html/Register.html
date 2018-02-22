@@ -17,8 +17,12 @@
 <div class="header" ><span style="color: rgb(244, 122, 66)"><strong>ACX</strong></span><span style="color: rgb(115, 115, 115)"> Security</span></div>
 
 <div class="headerLine"><hr></div>
-
-<div class="container">
+<div class ="checkDetails">
+    <label htmlFor="employeeId">Employee Id:</label>
+    <input type="text" name="employeeId" value = "" id="employeeId" placeholder="Enter Employee Id" ></input>
+    <button id="checkDetailsButton" onclick="getdetails()">CHECK DETAILS</button>
+</div>
+<div class="container" id="container" style="display: none">
     <div class="container1">
         <div class="boxes">
             <div class="column1">
@@ -42,9 +46,6 @@
         <div class="details">
             <label htmlFor="nameOfThePerson">Name of the Employee:</label>
             <input type="text" name="nameOfThePerson" value="" id="nameOfThePerson" placeholder="Enter Your Name" ></input>
-            <br/>
-            <label htmlFor="employeeId">Employee Id: </label>
-            <input type="text" name="employeeId" value = "" id="employeeId" placeholder="Enter Employee Id" ></input>
             <br/>
             <label htmlFor="designation">Designation: </label>
             <input type="text" name="designation" value="" id="designation" placeholder="Enter Designation" ></input>
