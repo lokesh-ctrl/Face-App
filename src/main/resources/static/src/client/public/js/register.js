@@ -1,7 +1,7 @@
 var popUp = document.getElementById('cameraPopUp');
 var video = document.querySelector('#camera-stream')
 var btn = document.getElementsByClassName("takePhotoButton")
-var takePhotoButton = document.getElementById("snap");
+var takePhotoButton = document.getElementById("snapButtonInPopUp");
 var span = document.getElementsByClassName("close")[0];
 var images = [];
 
@@ -85,28 +85,62 @@ takePhotoButton.addEventListener('click',function(){
     popUp.style.display = "none";
     var parentElement = ClickedElement.parentNode;
     console.log(parentElement);
-    parentElement.innerHTML="<div><h2>Photo Added</h2></div>"
+    var img = document.createElement("img");
+    img.src =image;
+    img.classList.add('imageClass');
+    parentElement.replaceChild(img,ClickedElement);
 });
 
 function register() {
     var name = document.getElementById("nameOfThePerson").value;
     var id = document.getElementById("employeeId").value;
     var designation = document.getElementById("designation").value;
-    console.log(name+id+designation);
-    var a = {image: images, employeeName:name, employeeId:id, employeeDesignation:designation};
-    console.log(a);
-    $.ajax({
-        type: "POST",
-        url: "/register",
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        data: JSON.stringify(a),
-        success: function (dataString) {
-            if(dataString.status=="success"){
-                console.log(' Registration Successed');
-                window.location.href = "https:localhost:8080";
+    console.log(name + id + designation);
+    if (images.length < 5) {
+        console.log("Take all the images");
+        alert("Take all the five images");
+    }
+    else {
+        if (!name) {
+            alert("Employee name can not be empty");
+        }
+        else {
+            if (!id) {
+                alert("Employee id cannot be empty");
+            }
+            else {
+                if (!designation) {
+                    alert("Employee designation cannot be empty");
+                }
+                else {
+                    var a = {
+                        employeeName: name,
+                        employeeImages: images,
+                        employeeId: id,
+                        employeeDesignation: designation
+                    };
+                    console.log(a);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "/register",
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        data: JSON.stringify(a),
+                        success: function (dataString) {
+                            if (dataString.status == "success") {
+                                console.log(' Registration Successed');
+                                var container = document.getElementsByClassName("container");
+                                container.innerHTML = "<div>Registration success</div>";
+                                setTimeout(function () {
+                                    window.location = '../../../../index.html';
+                                }, 1000);
+                            }
+                        }
+
+                    })
+                }
             }
         }
-
-    })
+    }
 }

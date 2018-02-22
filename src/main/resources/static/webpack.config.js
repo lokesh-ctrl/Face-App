@@ -21,6 +21,11 @@ var config = {
           test:/\.css/,
           include: APP_DIR,
           loader:'style-loader!css-loader'
+        },
+        {
+            test:/\.html/,
+            include: APP_DIR,
+            loader:'html-loader'
         }
     ]
   }

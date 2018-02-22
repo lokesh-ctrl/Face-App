@@ -5,7 +5,7 @@
     border-style: none;
     border-radius: 5%;
     border: 15px;
-   font-size: 2.5em;
+   font-size: 3.5em;
     height: 14%;
 }
 .headerLine{
@@ -30,24 +30,6 @@
     width: auto;
 
 }
-/*.footer{
-    height:14%;
-    text-align: center;
-    font-size: large;
-    bottom: 0;
-    position: relative;
-    width: 100%;
-    display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: 10%;
-    margin-right: 10%;
-    border-width: 3px;
-    border-top: 3px dashed #111111;
-    width:80%;
-
-
-}*/
 
 .container>div{
 
@@ -67,6 +49,9 @@
     grid-column-start: 1;
     grid-column-end: 3;
     padding: 10px;
+    width:90%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 #myStatus {
     width: 90%;
@@ -79,20 +64,11 @@
     height: 20px;
     background-color: blue;
 }
-.material-icons {
+* {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    font-size: 2%;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -webkit-font-feature-settings: 'liga';
-    -webkit-font-smoothing: antialiased;
+
 }
 
 *{
@@ -128,11 +104,6 @@ html{
     width: max-content;
 }
 
-.app{
-    width: 100%;
-    position: relative;
-    border-style: solid;
-}
 
 .app #start-camera{
     display: none;
@@ -148,8 +119,10 @@ html{
 }
 
 .app video#camera-stream{
+    border-radius: 70%;
     display: none;
-    width: 100%;
+    width: 80%;
+    height:100%;
 }
 
 .app img#snap{
@@ -760,15 +733,19 @@ body{
 }
 
 #openDoor{
-    color: #111111;
-    border-radius: 5px;
-    padding: 5px;
-    position:relative;
-    top: 50%;
-    bottom: 100%;
-    font-size: xx-large;
-    left: 10%;
-    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.6em;
+
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: lightseagreen;
+    color: white;
 }
 
 #details{
@@ -779,4 +756,8 @@ body{
 #instructions{
     font-size: larger;
     left: 10%;
+}
+
+#tryagain{
+    font-size: 5em;
 }

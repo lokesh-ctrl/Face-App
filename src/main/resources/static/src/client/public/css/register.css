@@ -1,11 +1,16 @@
+* {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
 
+}
 .header{
     display: block;
     text-align: center;
     border-style: none;
     border-radius: 5%;
     border: 15px;
-    font-size: 2.5em;
+    font-size: 3.5em;
     height: 14%;
 }
 .headerLine{
@@ -45,12 +50,17 @@
 .boxes{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 100px;
+    grid-template-rows: auto;
     grid-auto-rows: 100px;
     grid-gap: 2px;
+    min-height: 70px;
 }
 
 div .column1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
     border-radius: 2px;
     border-style: solid;
     border-width: 2px;
@@ -58,6 +68,10 @@ div .column1{
     grid-column-end: 2;
 }
 div .column2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
     border-radius: 2px;
     border-style: solid;
     border-width: 2px;
@@ -65,6 +79,10 @@ div .column2{
     grid-column-end: 3;
 }
 div .column3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
     border-radius: 2px;
     border-style: solid;
     border-width: 2px;
@@ -72,6 +90,10 @@ div .column3{
     grid-column-end: 4;
 }
 div .column4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
     border-radius: 2px;
     border-style: solid;
     border-width: 2px;
@@ -79,6 +101,10 @@ div .column4{
     grid-column-end: 5;
 }
 div .column5{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3em;
     border-radius: 2px;
     border-style: solid;
     border-width: 2px;
@@ -108,13 +134,29 @@ div .column5{
     float: bottom;
     width: 100%;
     padding: 10px;
-    height: 200px;
+    height: auto;
     background-color: white;
+    display: flex;
+    justify-content: center;
 }
-#register{
+#registerButton{
     margin-left: auto;
     margin-right: auto;
+    font-size: 1.6em;
+    width: 50%;
+    padding: 20px 20px;
+    margin: 15px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: rgb(244, 122, 66);
+    color: white;
 
+}
+#registerButton:hover{
+    background-color: rgb(244, 92, 66);
+    color: white;
 }
 .container:after {
     content: "";
@@ -153,17 +195,17 @@ div .column5{
 }
 
 #cameraPopUp {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
 
 
@@ -172,7 +214,8 @@ div .column5{
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: fit-content;
+    width: -moz-fit-content;
 }
 
 video{
@@ -218,6 +261,170 @@ label{
 .container2{
     width: 100%;
     height: 100%;
-    padding: 50px;
 
+}
+.imageClass{
+    width: inherit;
+    height: 200px;
+}
+#snapButtonInPopUp{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.6em;
+
+    width: 100%;
+    padding: 12px 12px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: lightseagreen;
+    color: white;
+}
+#snapButtonInPopUp:hover{
+    background-color: rgb(244, 122, 66);
+    color: white;
+}
+
+@media screen and (max-width: 480px) {
+    #camera-stream{
+        width: 100%;
+    }
+
+    .boxes{
+        grid-template-columns: repeat(auto-fit,minmax(50px,1fr));
+        font-size: 1em;
+    }
+    div .column1{
+        font-size: 1em;
+    }
+    div .column2{
+        font-size: 1em;
+    }
+    div .column3{
+        font-size: 1em;
+    }
+    div .column4{
+        font-size: 1em;
+    }
+    div .column5{
+        font-size: 1em;
+    }
+    .imageClass{
+        width: 100%;
+        height: 100%;
+    }
+    label{
+        font-size: 1em;
+    }
+    input[type=text]{
+        font-size: 1em;
+        padding:10px 10px;
+    }
+    #registerButton{
+        font-size: 1em;
+        padding:10px 10px;
+    }
+    .container3{
+        padding: 0px;
+        padding-left: 10px;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    #camera-stream{
+        width: 100%;
+    }
+
+    .boxes{
+        grid-template-columns: repeat(auto-fit,minmax(70px,1fr));
+        font-size: 1.1em;
+    }
+    div .column1{
+        font-size: 1em;
+    }
+    div .column2{
+        font-size: 1em;
+    }
+    div .column3{
+        font-size: 1em;
+    }
+    div .column4{
+        font-size: 1em;
+    }
+    div .column5{
+        font-size: 1em;
+    }
+    .imageClass{
+        width: 100%;
+        height: 100%;
+    }
+    label{
+        font-size: 1.5em;
+    }
+    input[type=text]{
+        font-size: 1em;
+        padding:10px 10px;
+    }
+    #registerButton{
+        font-size: 1.5em;
+        padding:10px 10px;
+    }
+    .container3{
+        padding: 0px;
+        padding-left: 10px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    #camera-stream {
+        width: 100%;
+    }
+
+    .boxes {
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        font-size: 1.2em;
+    }
+
+    div .column1 {
+        font-size: 1.2em;
+    }
+
+    div .column2 {
+        font-size: 1.2em;
+    }
+
+    div .column3 {
+        font-size: 1.2em;
+    }
+
+    div .column4 {
+        font-size: 1.2em;
+    }
+
+    div .column5 {
+        font-size: 1.2em;
+    }
+
+    .imageClass {
+        width: 100%;
+        height: 100%;
+    }
+
+    label {
+        font-size: 1.5em;
+    }
+
+    input[type=text] {
+        font-size: 1.5em;
+        padding: 15px 15px;
+    }
+
+    #registerButton {
+        font-size: 1.5em;
+        padding: 15px 15px;
+    }
+
+    .container{
+        margin-left: 8%;
+    }
 }
