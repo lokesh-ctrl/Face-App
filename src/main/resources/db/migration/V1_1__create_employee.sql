@@ -13,3 +13,4 @@ insert into employee VALUES
   ('c177f4be-e905-4fdb-bdf5-cd3c4116a7fc','intern-04','Harika','Intern in Engineering',0),
   ('3caf8e64-d7e0-45d2-829f-04b644c17f86','E01','David McNamara','UX Designer, EcoSystem',0);
   ('3caf8e64-d7e0-45d2-829f-04b644c17f86','E-01','David McNamara','UX Designer,Ecosystem',0);
+  ('c177f4be-e905-4fdb-bdf5-cd3c4116a7fc','intern-04','Harika','Intern in Engineering',0);
