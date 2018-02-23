@@ -2,6 +2,7 @@ package com.aconex.FaceRecognition.services;
 
 import com.aconex.FaceRecognition.Repository.EmployeeRepository;
 import com.aconex.FaceRecognition.model.Employee;
+import com.aconex.FaceRecognition.representation.EmployeeDetailsDto;
 import com.aconex.FaceRecognition.representation.EmployeeDto;
 import com.aconex.FaceRecognition.representation.EmployeeRegisterDto;
 import com.aconex.FaceRecognition.representation.RegistrationStatusDto;

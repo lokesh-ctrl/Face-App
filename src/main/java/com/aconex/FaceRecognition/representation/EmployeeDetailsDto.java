@@ -10,11 +10,11 @@ public class EmployeeDetailsDto {
 
     private  String eDesignation;
 
-    EmployeeDetailsDto(){
+    public EmployeeDetailsDto(){
 
     }
 
-    EmployeeDetailsDto(String eId,String eName,String eDesignation,String status){
+    public EmployeeDetailsDto(String eId,String eName,String eDesignation,String status){
 
         this.eId=eId;
 
