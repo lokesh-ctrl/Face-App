@@ -102,62 +102,46 @@ function getDetails() {
         success: function (dataString) {
             if (dataString.status == "success") {
                 document.getElementById("container").style.display = "block";
+                document.getElementById("returnedName").innerText=dataString.name;
+                document.getElementById("returnedDesignation").innerText=dataString.designation;
+            }
+            else{
+                document.getElementById("ifNoDetailsFound").style.display = "block";
             }
         }
-
     })
-
-
 }
 function register() {
-    var name = document.getElementById("nameOfThePerson").value;
+    var name = document.getElementById("returnedName").innerText;
     var id = document.getElementById("employeeId").value;
-    var designation = document.getElementById("designation").value;
+    var designation = document.getElementById("returnedDesignation").innerText;
     console.log(name + id + designation);
     if (images.length < 5) {
         alert("Take all the five images");
     }
     else {
-        if (!name) {
-            alert("Employee name can not be empty");
-        }
-        else {
-            if (!id) {
-                alert("Employee id cannot be empty");
-            }
-            else {
-                if (!designation) {
-                    alert("Employee designation cannot be empty");
+        var a = {
+            employeeName: name,
+            employeeImages: images,
+            employeeId: id,
+            employeeDesignation: designation
+            };
+        console.log(a);
+        $.ajax({
+            type: "POST",
+            url: "/register",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: JSON.stringify(a),
+            success: function (dataString) {
+                if (dataString.status === "success") {
+                    console.log(' Registration Successed');
+                    var container = document.getElementsByClassName("container");
+                    container.innerHTML = "<div>Registration success</div>";
+                    setTimeout(function () {
+                        window.location = '../../../../index.html';
+                        }, 1000);
                 }
-                else {
-                    var a = {
-                        employeeName: name,
-                        employeeImages: images,
-                        employeeId: id,
-                        employeeDesignation: designation
-                    };
-                    console.log(a);
-
-                    $.ajax({
-                        type: "POST",
-                        url: "/register",
-                        contentType: 'application/json; charset=utf-8',
-                        dataType: 'json',
-                        data: JSON.stringify(a),
-                        success: function (dataString) {
-                            if (dataString.status == "success") {
-                                console.log(' Registration Successed');
-                                var container = document.getElementsByClassName("container");
-                                container.innerHTML = "<div>Registration success</div>";
-                                setTimeout(function () {
-                                    window.location = '../../../../index.html';
-                                }, 1000);
-                            }
-                        }
-
-                    })
-                }
-            }
-        }
+                }})
     }
 }

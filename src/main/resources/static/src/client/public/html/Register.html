@@ -14,15 +14,29 @@
 
 </head>
 <body>
-<div class="header" ><span style="color: rgb(244, 122, 66)"><strong>ACX</strong></span><span style="color: rgb(115, 115, 115)"> Security</span></div>
+<div align="center" class="header" ><span style="color: rgb(244, 122, 66)"><strong>ACX</strong></span><span style="color: rgb(115, 115, 115)"> Security</span></div>
 
 <div class="headerLine"><hr></div>
+<div style="font-size: 2em" align="center" >
+    <span id="registerHeader"><b>REGISTER</b></span></br>
+</div>
 <div class ="checkDetails">
     <label htmlFor="employeeId">Employee Id:</label>
     <input type="text" name="employeeId" value = "" id="employeeId" placeholder="Enter Employee Id" ></input>
     <button id="checkDetailsButton" onclick="getdetails()">CHECK DETAILS</button>
 </div>
+<div align="center" id="ifNoDetailsFound" style="display: none">
+    <strong>NO DETAILS FOUND </strong>
+
+</div>
 <div class="container" id="container" style="display: none">
+
+    <div class="container2">
+        <div class="details">
+            <span id="employeeName">NAME:   </span><span id="returnedName"></span></br>
+            <span id="employeeDesignation">DESIGNATION:   </span><span id="returnedDesignation"></span></br>
+        </div>
+    </div>
     <div class="container1">
         <div class="boxes">
             <div class="column1">
@@ -40,16 +54,6 @@
             <div class="column5" >
                 <img src="../images/sample-image.png" value="column5"  id="fifthButton" class="takePhotoButton column5" onclick="displayPopUp()">
             </div>
-        </div>
-    </div>
-    <div class="container2">
-        <div class="details">
-            <label htmlFor="nameOfThePerson">Name of the Employee:</label>
-            <input type="text" name="nameOfThePerson" value="" id="nameOfThePerson" placeholder="Enter Your Name" ></input>
-            <br/>
-            <label htmlFor="designation">Designation: </label>
-            <input type="text" name="designation" value="" id="designation" placeholder="Enter Designation" ></input>
-            <br/>
         </div>
     </div>
     <div class="container3">
