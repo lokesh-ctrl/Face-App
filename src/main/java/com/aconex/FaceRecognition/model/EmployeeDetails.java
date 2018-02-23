@@ -1,18 +1,23 @@
 package com.aconex.FaceRecognition.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class EmployeeDetails {
 
+    @Id
     private String eid;
 
     private String ename;
 
     private String edesignation;
 
-    EmployeeDetails(){
+    public EmployeeDetails(){
 
     }
 
-    EmployeeDetails(String eid,String ename,String edesignation){
+    public EmployeeDetails(String eid,String ename,String edesignation){
 
         this.eid=eid;
 
