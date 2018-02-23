@@ -92,24 +92,29 @@ takePhotoButton.addEventListener('click',function(){
 });
 function getDetails() {
     var enteredId = document.getElementById("employeeId").value;
-    var objectOfId = {id:enteredId};
-    $.ajax({
-        type: "POST",
-        url: "/getDetails",
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        data: JSON.stringify(objectOfId),
-        success: function (dataString) {
-            if (dataString.status == "success") {
-                document.getElementById("container").style.display = "block";
-                document.getElementById("returnedName").innerText=dataString.name;
-                document.getElementById("returnedDesignation").innerText=dataString.designation;
-            }
-            else{
-                document.getElementById("ifNoDetailsFound").style.display = "block";
-            }
-        }
-    })
+    if (!enteredId) {
+        alert("Enter Employee Id");
+    }
+    else{
+        var objectOfId = {id: enteredId};
+        $.ajax({
+            type: "POST",
+            url: "/getDetails",
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            data: JSON.stringify(objectOfId),
+            success: function (dataString) {
+                if (dataString.status == "success") {
+                    document.getElementById("container").style.display = "block";
+                    document.getElementById("returnedName").innerText = dataString.name;
+                    document.getElementById("returnedDesignation").innerText = dataString.designation;
+                    }
+                else {
+                    document.getElementById("ifNoDetailsFound").style.display = "block";
+                    }
+                }
+        })
+    }
 }
 function register() {
     var name = document.getElementById("returnedName").innerText;

@@ -26,6 +26,13 @@
     border-width: 3px;
     width:80%;
 }
+#checkDetailsButton{
+    font-size: 1.3em;
+    padding: 15px;
+    background-color: white;
+    box-shadow: #9b9b9b;
+    color: rgb(244, 122, 66);
+}
 
 
 .footer{
