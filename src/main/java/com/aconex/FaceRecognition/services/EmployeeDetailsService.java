@@ -4,9 +4,13 @@ import com.aconex.FaceRecognition.Repository.EmployeeDetailsRepository;
 import com.aconex.FaceRecognition.model.EmployeeDetails;
 import com.aconex.FaceRecognition.representation.EmployeeDetailsDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import static com.aconex.FaceRecognition.services.ObjectConverter.dto;
 
+
+
+@Service
 public class EmployeeDetailsService {
 
 
