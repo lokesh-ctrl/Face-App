@@ -4,11 +4,11 @@ public class EmployeeIdDto {
 
     private String employeeId;
 
-    EmployeeIdDto(){
+    public EmployeeIdDto(){
 
     }
 
-    EmployeeIdDto(String employeeId){
+    public EmployeeIdDto(String employeeId){
 
         this.employeeId=employeeId;
 

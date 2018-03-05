@@ -96,7 +96,7 @@ function getDetails() {
         alert("Enter Employee Id");
     }
     else{
-        var objectOfId = {id: enteredId};
+        var objectOfId = {employeeId: enteredId};
         $.ajax({
             type: "POST",
             url: "/getDetails",
@@ -104,10 +104,11 @@ function getDetails() {
             dataType: 'json',
             data: JSON.stringify(objectOfId),
             success: function (dataString) {
+                console.log(dataString);
                 if (dataString.status == "success") {
                     document.getElementById("container").style.display = "block";
-                    document.getElementById("returnedName").innerText = dataString.name;
-                    document.getElementById("returnedDesignation").innerText = dataString.designation;
+                    document.getElementById("returnedName").innerText = dataString.eName;
+                    document.getElementById("returnedDesignation").innerText = dataString.eDesignation;
                     }
                 else {
                     document.getElementById("ifNoDetailsFound").style.display = "block";
