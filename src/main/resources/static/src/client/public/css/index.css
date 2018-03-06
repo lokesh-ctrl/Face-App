@@ -758,6 +758,34 @@ body{
     left: 10%;
 }
 
-#tryagain{
+#tryAgain{
     font-size: 5em;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.6em;
+
+    width: 50%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: lightseagreen;
+    color: white;
+}
+#register{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.6em;
+
+    width: 50%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: rgb(244, 122, 66);
+    color: white;
 }
