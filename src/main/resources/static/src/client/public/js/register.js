@@ -4,8 +4,9 @@ var btn = document.getElementsByClassName("takePhotoButton")
 var takePhotoButton = document.getElementById("snapButtonInPopUp");
 var span = document.getElementsByClassName("close")[0];
 var images = [];
+var buttonregister = document.getElementById("registerButton");
 
-
+buttonregister.addEventListener('click',register);
 function displayPopUp() {
     popUp.style.display = "block";
     ClickedElement = event.target;
@@ -118,6 +119,7 @@ function getDetails() {
     }
 }
 function register() {
+    console.log("in register");
     var name = document.getElementById("returnedName").innerText;
     var id = document.getElementById("employeeId").value;
     var designation = document.getElementById("returnedDesignation").innerText;
@@ -126,6 +128,8 @@ function register() {
         alert("Take all the five images");
     }
     else {
+        buttonregister.style.backgroundColor="rgb(120,120,120)";
+        buttonregister.removeEventListener('click',register);
         var a = {
             employeeName: name,
             employeeImages: images,
